@@ -1,0 +1,389 @@
+{
+  "author": "Danilo Toro - <danilo.toro@rocketbot.cl>",
+  "description": "Module to perform actions on a terminal emulator",
+  "disclaimer": "THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.",
+  "version": "1.0",
+  "license": "MIT",
+  "homepage": "http://rocketbot.co",
+  "linux": true,
+  "windows": true,
+  "mac": true,
+  "docker": true,
+  "name": "Terminal_emulator",
+  "dependencies": {
+    "p5250": "0.1.0"
+  },
+  "title": {
+    "en": "Terminal Emulator",
+    "es": "Terminal Emulator"
+  },
+  "icon": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDQ3Mi42MTUgNDcyLjYxNSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDcyLjYxNSA0NzIuNjE1OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8Zz4NCgk8Zz4NCgkJPHBhdGggZD0iTTAsMC43NTZ2NDcxLjEwM2g0NzIuNjE1VjAuNzU2SDB6IE03NC45NjksMzkzLjQwNGw3MS42ODYtNzEuNjkxbC03MS42ODYtNzEuNjg3bDEzLjM2Ni0xMy4zNjZsODUuMDUyLDg1LjA1Mw0KCQkJTDg4LjMzNSw0MDYuNzdMNzQuOTY5LDM5My40MDR6IE0yNzUuMjYyLDQwOS41MzlIMTYwLjAyMXYtMTguOTA1aDExNS4yNDFWNDA5LjUzOXoiLz4NCgk8L2c+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8L3N2Zz4NCg==",
+  "children": [
+    {
+      "en": {
+        "title": "Connect",
+        "description": "Connect to terminal"
+      },
+      "es": {
+        "title": "Conectar",
+        "description": "Conecta con una terminal"
+      },
+      "form": {
+        "css": "modal-lg",
+        "inputs": [
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "localhost",
+              "en": "localhost"
+            },
+            "title": {
+              "es": "Host",
+              "en": "Host"
+            },
+            "id": "host",
+            "css": "col-md-6"
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "23",
+              "en": "23"
+            },
+            "title": {
+              "es": "Port",
+              "en": "Port"
+            },
+            "id": "port",
+            "css": "col-md-3"
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "cp03",
+              "en": "cp03"
+            },
+            "title": {
+              "es": "Code Page",
+              "en": "Code Page"
+            },
+            "id": "code",
+            "css": "col-md-3"
+          },
+          {
+            "type": "file_select",
+            "placeholder": {
+              "es": "c:/wc3270/",
+              "en": "c:/wc3270/"
+            },
+            "title": {
+              "es": "Ruta",
+              "en": "Path"
+            },
+            "id": "path",
+            "css": "col-md-12"
+          }
+        ]
+      },
+      "video_youtube": "",
+      "icon": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDQ3Mi42MTUgNDcyLjYxNSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDcyLjYxNSA0NzIuNjE1OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8Zz4NCgk8Zz4NCgkJPHBhdGggZD0iTTAsMC43NTZ2NDcxLjEwM2g0NzIuNjE1VjAuNzU2SDB6IE03NC45NjksMzkzLjQwNGw3MS42ODYtNzEuNjkxbC03MS42ODYtNzEuNjg3bDEzLjM2Ni0xMy4zNjZsODUuMDUyLDg1LjA1Mw0KCQkJTDg4LjMzNSw0MDYuNzdMNzQuOTY5LDM5My40MDR6IE0yNzUuMjYyLDQwOS41MzlIMTYwLjAyMXYtMTguOTA1aDExNS4yNDFWNDA5LjUzOXoiLz4NCgk8L2c+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8L3N2Zz4NCg==",
+      "module": "connect",
+      "module_name": "Terminal_emulator",
+      "visible": true,
+      "options": false,
+      "father": "module",
+      "group": "scripts",
+      "linux": false,
+      "windows": true,
+      "mac": true,
+      "docker": true
+    },
+    {
+      "en": {
+        "title": "Disconnect",
+        "description": "Disconnect terminal"
+      },
+      "es": {
+        "title": "Desconectar",
+        "description": "Conecta con la terminal"
+      },
+      "form": {
+        "css": "modal-lg",
+        "inputs": []
+      },
+      "video_youtube": "",
+      "icon": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDQ3Mi42MTUgNDcyLjYxNSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDcyLjYxNSA0NzIuNjE1OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8Zz4NCgk8Zz4NCgkJPHBhdGggZD0iTTAsMC43NTZ2NDcxLjEwM2g0NzIuNjE1VjAuNzU2SDB6IE03NC45NjksMzkzLjQwNGw3MS42ODYtNzEuNjkxbC03MS42ODYtNzEuNjg3bDEzLjM2Ni0xMy4zNjZsODUuMDUyLDg1LjA1Mw0KCQkJTDg4LjMzNSw0MDYuNzdMNzQuOTY5LDM5My40MDR6IE0yNzUuMjYyLDQwOS41MzlIMTYwLjAyMXYtMTguOTA1aDExNS4yNDFWNDA5LjUzOXoiLz4NCgk8L2c+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8L3N2Zz4NCg==",
+      "module": "disconnect",
+      "module_name": "Terminal_emulator",
+      "visible": true,
+      "options": false,
+      "father": "module",
+      "group": "scripts",
+      "linux": false,
+      "windows": true,
+      "mac": true,
+      "docker": true
+    },
+    {
+      "en": {
+        "title": "Send Text",
+        "description": "Send text to Terminal"
+      },
+      "es": {
+        "title": "Enviar Texto",
+        "description": "Envía texto a la terminal"
+      },
+      "form": {
+        "css": "modal-lg",
+        "inputs": [
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "Usuario 1",
+              "en": "User 1"
+            },
+            "title": {
+              "es": "Texto",
+              "en": "Text:"
+            },
+            "id": "text",
+            "css": "col-md-12"
+          }
+        ]
+      },
+      "video_youtube": "",
+      "icon": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDQ3Mi42MTUgNDcyLjYxNSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDcyLjYxNSA0NzIuNjE1OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8Zz4NCgk8Zz4NCgkJPHBhdGggZD0iTTAsMC43NTZ2NDcxLjEwM2g0NzIuNjE1VjAuNzU2SDB6IE03NC45NjksMzkzLjQwNGw3MS42ODYtNzEuNjkxbC03MS42ODYtNzEuNjg3bDEzLjM2Ni0xMy4zNjZsODUuMDUyLDg1LjA1Mw0KCQkJTDg4LjMzNSw0MDYuNzdMNzQuOTY5LDM5My40MDR6IE0yNzUuMjYyLDQwOS41MzlIMTYwLjAyMXYtMTguOTA1aDExNS4yNDFWNDA5LjUzOXoiLz4NCgk8L2c+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8L3N2Zz4NCg==",
+      "module": "send_text",
+      "module_name": "Terminal_emulator",
+      "visible": true,
+      "options": false,
+      "father": "module",
+      "group": "scripts",
+      "linux": false,
+      "windows": true,
+      "mac": true,
+      "docker": true
+    },
+    {
+      "en": {
+        "title": "Send Key",
+        "description": "Send key to Terminal"
+      },
+      "es": {
+        "title": "Enviar Tecla",
+        "description": "Envía tecla a la terminal"
+      },
+      "form": {
+        "css": "modal-lg",
+        "inputs": [
+          {
+            "type": "select",
+            "options": [
+              {
+                "title": "--Seleccione--",
+                "value": ""
+              },
+              {
+                "title": "BackSpace",
+                "value": "backSpace"
+              },
+              {
+                "title": "Back Tab",
+                "value": "backTab"
+              },
+              {
+                "title": "Enter",
+                "value": "enter"
+              },
+              {
+                "title": "F1",
+                "value": "f1"
+              },
+              {
+                "title": "F2",
+                "value": "f2"
+              },
+              {
+                "title": "F3",
+                "value": "f3"
+              },
+              {
+                "title": "F4",
+                "value": "f4"
+              },
+              {
+                "title": "F5",
+                "value": "f5"
+              },
+              {
+                "title": "F6",
+                "value": "f6"
+              },
+              {
+                "title": "F7",
+                "value": "f7"
+              },
+              {
+                "title": "F8",
+                "value": "f8"
+              },
+              {
+                "title": "F9",
+                "value": "f9"
+              },
+              {
+                "title": "F10",
+                "value": "f10"
+              },
+              {
+                "title": "F11",
+                "value": "f11"
+              },
+              {
+                "title": "F12",
+                "value": "f12"
+              },
+              {
+                "title": "Tab",
+                "value": "tab"
+              }
+            ],
+            "title": {
+              "es": "Tecla",
+              "en": "Keys:"
+            },
+            "id": "key",
+            "css": "col-md-12"
+          }
+        ]
+      },
+      "video_youtube": "",
+      "icon": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDQ3Mi42MTUgNDcyLjYxNSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDcyLjYxNSA0NzIuNjE1OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8Zz4NCgk8Zz4NCgkJPHBhdGggZD0iTTAsMC43NTZ2NDcxLjEwM2g0NzIuNjE1VjAuNzU2SDB6IE03NC45NjksMzkzLjQwNGw3MS42ODYtNzEuNjkxbC03MS42ODYtNzEuNjg3bDEzLjM2Ni0xMy4zNjZsODUuMDUyLDg1LjA1Mw0KCQkJTDg4LjMzNSw0MDYuNzdMNzQuOTY5LDM5My40MDR6IE0yNzUuMjYyLDQwOS41MzlIMTYwLjAyMXYtMTguOTA1aDExNS4yNDFWNDA5LjUzOXoiLz4NCgk8L2c+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8L3N2Zz4NCg==",
+      "module": "send_key",
+      "module_name": "Terminal_emulator",
+      "visible": true,
+      "options": false,
+      "father": "module",
+      "group": "scripts",
+      "linux": false,
+      "windows": true,
+      "mac": true,
+      "docker": true
+    },
+    {
+      "en": {
+        "title": "Move Cursor",
+        "description": "Move cursor to specific position on Terminal"
+      },
+      "es": {
+        "title": "Mover cursor",
+        "description": "Mueve el cursor "
+      },
+      "form": {
+        "css": "modal-lg",
+        "inputs": [
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "fila,columna",
+              "en": "row,column"
+            },
+            "title": {
+              "es": "Mover por posición",
+              "en": "Move to position"
+            },
+            "id": "position",
+            "css": "col-md-12"
+          },
+          {
+            "type": "select",
+            "options": [
+              {
+                "title": "--Seleccione--",
+                "value": ""
+              },
+              {
+                "title": "Cursor Down",
+                "value": "moveCursorDown"
+              },
+              {
+                "title": "Cursor Left",
+                "value": "moveCursorLeft"
+              },
+              {
+                "title": "Cursor Right",
+                "value": "moveCursorRight"
+              },
+              {
+                "title": "Cursor Up",
+                "value": "moveCursorUp"
+              }
+            ],
+            "title": {
+              "es": "Dirección",
+              "en": "Direction:"
+            },
+            "id": "direction",
+            "css": "col-md-12"
+          }
+        ]
+      },
+      "video_youtube": "",
+      "icon": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDQ3Mi42MTUgNDcyLjYxNSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDcyLjYxNSA0NzIuNjE1OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8Zz4NCgk8Zz4NCgkJPHBhdGggZD0iTTAsMC43NTZ2NDcxLjEwM2g0NzIuNjE1VjAuNzU2SDB6IE03NC45NjksMzkzLjQwNGw3MS42ODYtNzEuNjkxbC03MS42ODYtNzEuNjg3bDEzLjM2Ni0xMy4zNjZsODUuMDUyLDg1LjA1Mw0KCQkJTDg4LjMzNSw0MDYuNzdMNzQuOTY5LDM5My40MDR6IE0yNzUuMjYyLDQwOS41MzlIMTYwLjAyMXYtMTguOTA1aDExNS4yNDFWNDA5LjUzOXoiLz4NCgk8L2c+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8L3N2Zz4NCg==",
+      "module": "move_cursor",
+      "module_name": "Terminal_emulator",
+      "visible": true,
+      "options": false,
+      "father": "module",
+      "group": "scripts",
+      "linux": false,
+      "windows": true,
+      "mac": true,
+      "docker": true
+    },
+    {
+      "en": {
+        "title": "Get Text",
+        "description": "Get text from Terminal"
+      },
+      "es": {
+        "title": "Obtener Texto",
+        "description": "Obtiene el texto de la terminal"
+      },
+      "form": {
+        "css": "modal-lg",
+        "inputs": [
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "terminal_text",
+              "en": "terminal_text"
+            },
+            "title": {
+              "es": "Variable donde guardar el resultado",
+              "en": "Variable :"
+            },
+            "help": {
+              "en": "Variable where the result is stored without {}",
+              "es": "Variable donde se almacena el resultado sin {}"
+            },
+            "id": "result",
+            "css": "col-md-12"
+          }
+        ]
+      },
+      "video_youtube": "",
+      "icon": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDQ3Mi42MTUgNDcyLjYxNSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDcyLjYxNSA0NzIuNjE1OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8Zz4NCgk8Zz4NCgkJPHBhdGggZD0iTTAsMC43NTZ2NDcxLjEwM2g0NzIuNjE1VjAuNzU2SDB6IE03NC45NjksMzkzLjQwNGw3MS42ODYtNzEuNjkxbC03MS42ODYtNzEuNjg3bDEzLjM2Ni0xMy4zNjZsODUuMDUyLDg1LjA1Mw0KCQkJTDg4LjMzNSw0MDYuNzdMNzQuOTY5LDM5My40MDR6IE0yNzUuMjYyLDQwOS41MzlIMTYwLjAyMXYtMTguOTA1aDExNS4yNDFWNDA5LjUzOXoiLz4NCgk8L2c+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8L3N2Zz4NCg==",
+      "module": "get_text",
+      "module_name": "Terminal_emulator",
+      "visible": true,
+      "options": false,
+      "father": "module",
+      "group": "scripts",
+      "linux": false,
+      "windows": true,
+      "mac": true,
+      "docker": true
+    }
+  ]
+}
