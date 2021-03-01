@@ -60,14 +60,14 @@
           {
             "type": "input",
             "placeholder": {
-              "es": "cp03",
-              "en": "cp03"
+              "es": "connected",
+              "en": "connected"
             },
             "title": {
-              "es": "Code Page",
-              "en": "Code Page"
+              "es": "Asignar a variable",
+              "en": "Result"
             },
-            "id": "code",
+            "id": "result",
             "css": "col-md-3"
           },
           {
@@ -105,7 +105,7 @@
       },
       "es": {
         "title": "Desconectar",
-        "description": "Conecta con la terminal"
+        "description": "Desconecta con la terminal"
       },
       "form": {
         "css": "modal-lg",

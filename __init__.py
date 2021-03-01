@@ -57,10 +57,16 @@ if module == "connect":
     host = GetParams('host')
     path = GetParams('path')
     port = GetParams('port')
-    code_page = GetParams('code')
     result = GetParams('result')
     try:
-        terminal_simulator = P5250Client(hostName=host, hostPort=port, path=path, codePage=code_page)
+        args = {
+            "hostName": host
+        }
+        if path:
+            args["hostPort"] = port
+        if path:
+            args["path"] = path
+        terminal_simulator = P5250Client(**args)
         connected = terminal_simulator.connect()
         if result:
             SetVar(result, connected)
