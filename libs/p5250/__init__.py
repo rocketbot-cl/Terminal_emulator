@@ -1,9 +1,9 @@
 from p3270.p3270 import S3270, P3270Client, Config, StatusMessage
 
 
-class P5250Client():
+class P5250Client:
     def __init__(self, luName=None, hostName='localhost', hostPort='23', modelName='3279-2',
-                 verifyCert='yes', enableTLS='no', codePage='cp037', path=None, timeoutInSec=20):
+                 verifyCert='yes', enableTLS='no', codePage='cp037', path=None, timeoutInSec=20, configFile=None):
         self.luName = luName
         self.hostName = hostName
         self.hostPort = hostPort
@@ -16,7 +16,8 @@ class P5250Client():
 
         self.p3270 = P3270Client(luName=self.luName, hostName=self.hostName, hostPort=self.hostPort,
                                  modelName=self.modelName, verifyCert=self.verifyCert, enableTLS=self.enableTLS,
-                                 codePage=self.codePage, path=self.path, timeoutInSec=self.timeout)
+                                 codePage=self.codePage, path=self.path, timeoutInSec=self.timeout,
+                                 configFile=configFile)
 
     def connect(self):
         """ Connect to the host

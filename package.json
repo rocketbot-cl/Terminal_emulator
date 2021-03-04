@@ -34,6 +34,19 @@
           {
             "type": "input",
             "placeholder": {
+              "es": "Terminal_1",
+              "en": "Terminal_1"
+            },
+            "title": {
+              "es": "Nombre de sesión",
+              "en": "Session name"
+            },
+            "id": "id",
+            "css": "col-md-4"
+          },
+          {
+            "type": "input",
+            "placeholder": {
               "es": "localhost",
               "en": "localhost"
             },
@@ -42,7 +55,7 @@
               "en": "Host"
             },
             "id": "host",
-            "css": "col-md-6"
+            "css": "col-md-4"
           },
           {
             "type": "input",
@@ -55,6 +68,62 @@
               "en": "Port"
             },
             "id": "port",
+            "css": "col-md-4"
+          },
+          {
+            "type": "select",
+            "options": [
+              {
+                "title": "--Seleccione--",
+                "value": ""
+              },
+              {
+                "title": "3270",
+                "value": "3270"
+              },
+              {
+                "title": "5250",
+                "value": "5250"
+              }
+            ],
+            "title": {
+              "es": "Tipo de terminal",
+              "en": "Terminal type:"
+            },
+            "id": "type",
+            "css": "col-md-3"
+          },
+          {
+            "type": "select",
+            "options": [
+              {
+                "title": "None",
+                "value": ""
+              },
+              {
+                "title": "SSL",
+                "value": "ssl"
+              },
+              {
+                "title": "TLS",
+                "value": "tls"
+              }
+            ],
+            "title": {
+              "es": "Seguridad",
+              "en": "Seguridad"
+            },
+            "id": "protocol",
+            "css": "col-md-3"
+          },
+           {
+            "type": "checkbox",
+            "placeholder": "",
+            "title": {
+              "es": "Mostrar terminal",
+              "en": "Show terminal"
+            },
+            "id": "show",
             "css": "col-md-3"
           },
           {
@@ -106,6 +175,32 @@
       "es": {
         "title": "Desconectar",
         "description": "Desconecta con la terminal"
+      },
+      "form": {
+        "css": "modal-lg",
+        "inputs": []
+      },
+      "video_youtube": "",
+      "icon": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDQ3Mi42MTUgNDcyLjYxNSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDcyLjYxNSA0NzIuNjE1OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8Zz4NCgk8Zz4NCgkJPHBhdGggZD0iTTAsMC43NTZ2NDcxLjEwM2g0NzIuNjE1VjAuNzU2SDB6IE03NC45NjksMzkzLjQwNGw3MS42ODYtNzEuNjkxbC03MS42ODYtNzEuNjg3bDEzLjM2Ni0xMy4zNjZsODUuMDUyLDg1LjA1Mw0KCQkJTDg4LjMzNSw0MDYuNzdMNzQuOTY5LDM5My40MDR6IE0yNzUuMjYyLDQwOS41MzlIMTYwLjAyMXYtMTguOTA1aDExNS4yNDFWNDA5LjUzOXoiLz4NCgk8L2c+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8L3N2Zz4NCg==",
+      "module": "disconnect",
+      "module_name": "Terminal_emulator",
+      "visible": true,
+      "options": false,
+      "father": "module",
+      "group": "scripts",
+      "linux": false,
+      "windows": true,
+      "mac": true,
+      "docker": true
+    },
+    {
+      "en": {
+        "title": "End Session",
+        "description": "Finish terminal session"
+      },
+      "es": {
+        "title": "Cerrar sesión",
+        "description": "Finaliza la sesión en la terminal"
       },
       "form": {
         "css": "modal-lg",
@@ -375,6 +470,130 @@
       "video_youtube": "",
       "icon": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDQ3Mi42MTUgNDcyLjYxNSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDcyLjYxNSA0NzIuNjE1OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8Zz4NCgk8Zz4NCgkJPHBhdGggZD0iTTAsMC43NTZ2NDcxLjEwM2g0NzIuNjE1VjAuNzU2SDB6IE03NC45NjksMzkzLjQwNGw3MS42ODYtNzEuNjkxbC03MS42ODYtNzEuNjg3bDEzLjM2Ni0xMy4zNjZsODUuMDUyLDg1LjA1Mw0KCQkJTDg4LjMzNSw0MDYuNzdMNzQuOTY5LDM5My40MDR6IE0yNzUuMjYyLDQwOS41MzlIMTYwLjAyMXYtMTguOTA1aDExNS4yNDFWNDA5LjUzOXoiLz4NCgk8L2c+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8L3N2Zz4NCg==",
       "module": "get_text",
+      "module_name": "Terminal_emulator",
+      "visible": true,
+      "options": false,
+      "father": "module",
+      "group": "scripts",
+      "linux": false,
+      "windows": true,
+      "mac": true,
+      "docker": true
+    },
+    {
+      "en": {
+        "title": "Change Terminal",
+        "description": "Change to opened terminal sessión"
+      },
+      "es": {
+        "title": "Cambiar terminal",
+        "description": "Cambia a otra sesión de terminal abierta"
+      },
+      "form": {
+        "css": "modal-lg",
+        "inputs": [
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "Terminal_1",
+              "en": "Terminal_1"
+            },
+            "title": {
+              "es": "Nombre de sesión",
+              "en": "Session name"
+            },
+            "id": "id",
+            "css": "col-md-4"
+          }
+        ]
+      },
+      "video_youtube": "",
+      "icon": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDQ3Mi42MTUgNDcyLjYxNSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDcyLjYxNSA0NzIuNjE1OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8Zz4NCgk8Zz4NCgkJPHBhdGggZD0iTTAsMC43NTZ2NDcxLjEwM2g0NzIuNjE1VjAuNzU2SDB6IE03NC45NjksMzkzLjQwNGw3MS42ODYtNzEuNjkxbC03MS42ODYtNzEuNjg3bDEzLjM2Ni0xMy4zNjZsODUuMDUyLDg1LjA1Mw0KCQkJTDg4LjMzNSw0MDYuNzdMNzQuOTY5LDM5My40MDR6IE0yNzUuMjYyLDQwOS41MzlIMTYwLjAyMXYtMTguOTA1aDExNS4yNDFWNDA5LjUzOXoiLz4NCgk8L2c+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8L3N2Zz4NCg==",
+      "module": "change_terminal",
+      "module_name": "Terminal_emulator",
+      "visible": true,
+      "options": false,
+      "father": "module",
+      "group": "scripts",
+      "linux": false,
+      "windows": true,
+      "mac": true,
+      "docker": true
+    },
+    {
+      "en": {
+        "title": "Wait",
+        "description": "Wait for text on terminal by specific condition"
+      },
+      "es": {
+        "title": "Esperar",
+        "description": "Espera el texto en la terminal según una condición específica"
+      },
+      "form": {
+        "css": "modal-lg",
+        "inputs": [
+          {
+            "type": "select",
+            "options": [
+              {
+                "title": "Text appears",
+                "value": "appears"
+              },
+              {
+                "title": "Text disappears",
+                "value": "disappears"
+              },
+              {
+                "title": "Position cursor",
+                "value": "position_cursor"
+              },
+              {
+                "title": "Cursor Right",
+                "value": "moveCursorRight"
+              },
+              {
+                "title": "Cursor Up",
+                "value": "moveCursorUp"
+              }
+            ],
+            "title": {
+              "es": "Esperar por",
+              "en": "Wait by:"
+            },
+            "id": "condition",
+            "css": "col-md-12"
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "Opción",
+              "en": "Option"
+            },
+            "title": {
+              "es": "Texto",
+              "en": "Text"
+            },
+            "id": "text",
+            "css": "col-md-12"
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "condition",
+              "en": "condition"
+            },
+            "title": {
+              "es": "Asignar a variable",
+              "en": "Result"
+            },
+            "id": "result",
+            "css": "col-md-3"
+          }
+        ]
+      },
+      "video_youtube": "",
+      "icon": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDQ3Mi42MTUgNDcyLjYxNSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDcyLjYxNSA0NzIuNjE1OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8Zz4NCgk8Zz4NCgkJPHBhdGggZD0iTTAsMC43NTZ2NDcxLjEwM2g0NzIuNjE1VjAuNzU2SDB6IE03NC45NjksMzkzLjQwNGw3MS42ODYtNzEuNjkxbC03MS42ODYtNzEuNjg3bDEzLjM2Ni0xMy4zNjZsODUuMDUyLDg1LjA1Mw0KCQkJTDg4LjMzNSw0MDYuNzdMNzQuOTY5LDM5My40MDR6IE0yNzUuMjYyLDQwOS41MzlIMTYwLjAyMXYtMTguOTA1aDExNS4yNDFWNDA5LjUzOXoiLz4NCgk8L2c+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8L3N2Zz4NCg==",
+      "module": "wait",
       "module_name": "Terminal_emulator",
       "visible": true,
       "options": false,
