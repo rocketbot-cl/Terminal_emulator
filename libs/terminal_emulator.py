@@ -16,7 +16,6 @@ def create_log(terminal, path):
     with open(path, "w") as log:
         log.write(terminal.getScreen())
 
-
 class TerminalEmulator:
 
     def __init__(self):
@@ -25,6 +24,7 @@ class TerminalEmulator:
 
     def new_terminal(self, terminal_type, id_="", **kwargs):
         if terminal_type in ("3270", "5250"):
+
             print(kwargs)
 
             terminal = terminals[terminal_type](**kwargs)
@@ -48,6 +48,7 @@ class TerminalEmulator:
     def create_log(self, path):
         terminal = self.get_terminal()
         with open(path, "w") as log:
+
             log.write(terminal.getScreen())
 
 

@@ -2,7 +2,7 @@
   "author": "Danilo Toro - <danilo.toro@rocketbot.cl>",
   "description": "Module to perform actions on a terminal emulator",
   "disclaimer": "THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.",
-  "version": "1.0",
+  "version": "2.0",
   "license": "MIT",
   "homepage": "http://rocketbot.co",
   "linux": true,
@@ -148,6 +148,7 @@
             "title": {
               "es": "Archivo de configuración",
               "en": "Configuration file"
+
             },
             "id": "path",
             "css": "col-md-12"
@@ -275,6 +276,7 @@
           {
             "type": "input",
             "placeholder": {
+
               "es": "Usuario 1",
               "en": "User 1"
             },
@@ -522,6 +524,7 @@
       },
       "form": {
         "css": "modal-md",
+
         "inputs": [
           {
             "type": "input",
@@ -649,6 +652,7 @@
             },
             "id": "condition",
             "css": "col-md-6"
+
           },
           {
             "type": "input",

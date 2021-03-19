@@ -19,6 +19,7 @@ class P5250Client:
                                  modelName=self.modelName, verifyCert=self.verifyCert, enableTLS=self.enableTLS,
                                  codePage=self.codePage, path=self.path, timeoutInSec=self.timeout)
 
+
     def connect(self):
         """ Connect to the host
         """
