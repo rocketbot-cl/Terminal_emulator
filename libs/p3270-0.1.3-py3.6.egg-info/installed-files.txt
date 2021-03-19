@@ -1,0 +1,8 @@
+..\p3270\__init__.py
+..\p3270\__pycache__\__init__.cpython-36.pyc
+..\p3270\__pycache__\p3270.cpython-36.pyc
+..\p3270\p3270.py
+PKG-INFO
+SOURCES.txt
+dependency_links.txt
+top_level.txt

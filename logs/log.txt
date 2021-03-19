@@ -1,0 +1,24 @@
+ Inicio de Sesión
+     Sistema:   S102A9F0    Subsistema:   QINTER            Pantalla: QPADEV003H
+         Usuario . . . .
+         Contrase¦a  . .
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                 DESARROLLO
+
+Este sistema  es  sólo  para  propósitos autorizados  por  TELMEX COLOMBIA S.A.
+El propietario   del   usuario  es  responsable del uso  y  de  las  operaciones
+o transacciones que se realicen en el sistema con el mismo.   Si  aún  no cuenta
+con  un  usuario  para  el  cumplimiento de sus labores solicítelo ante  su jefe
+inmediato       de      conformidad      con    el  procedimiento   establecido
+                                        (C) COPYRIGHT IBM CORP. 1980, 2015.

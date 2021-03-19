@@ -1,0 +1,24 @@
+ CTS000-16-1                 SUBSCRIBER INQUIRY
+                                                      #: 03565515
+ 901 MECO INFRAESTRUCTURA SAS                                     CANCELLED/OWED
+                                                              Current Services N
+                                Division     : BOGOTA
+                                Community: BOGOTA     BOG
+ (Home) 312-269-8719            Billing Code : MONTHLY
+ (Bus.)                    RSch: FXHK       TXR:
+ (3rd )               TVC / BOG BOGOTA
+ Charge Day         :
+ Last Rental Date : Feb 02/21 1st Date on System: Jul 13/17
+                              Current Start Date:
+ Last Invoice Date  : Jan 02/21       Disconnect Reason    : SUSPENSION TEMPO
+ Last Invoice Amount:      143703,00  Disconnect Date      : Feb 16/21
+ Last Payment Date  : Dec 18/20       Last WO & SC #     : 310843121
+ Last Payment Amount:      143703,00  Last WO & SC Date    : Feb 16/21
+ Current Balance    :      159091,00
+ Monthly Rental     :      143703,00
+                                      Sub. Class
+                            Last signature date  : Feb 16/21 Cont  +
+           F3=Exit  F5=Payment          F7=SpecN  F8=SpecAddr          F10=Inv
+                 F13=Cr Hist             F15=RECONCT W/O F16=Unit Inq
+           F19=W/Os F20=Sec Dep  F21=SubUpd  F22=LogCall               F24=MORE
+ This subscriber is not active.  No unit data is displayed.
