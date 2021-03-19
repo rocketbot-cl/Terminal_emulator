@@ -12,7 +12,7 @@ Module to perform actions on a terminal emulator
     <li>Get Text</li>
 </ul>
 
-![alt text](https://github.com/rocketbot-cl/Access/blob/master/example/access.png)
+![alt text](https://github.com/rocketbot-cl/Terminal_emulator/blob/master/example/terminal.png)
 
 
 <h2>License</h2>
