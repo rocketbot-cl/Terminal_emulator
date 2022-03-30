@@ -1,8 +1,8 @@
 {
-  "author": "Danilo Toro - <danilo.toro@rocketbot.cl>",
+  "author": "Danilo Toro",
   "description": "Module to perform actions on a terminal emulator",
   "disclaimer": "THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.",
-  "version": "2.0",
+  "version": "2.1",
   "license": "MIT",
   "homepage": "http://rocketbot.co",
   "linux": true,
@@ -312,7 +312,7 @@
         "description": "Envía tecla a la terminal"
       },
       "form": {
-        "css": "modal-md",
+        "css": "modal-lg",
         "inputs": [
           {
             "type": "input",
@@ -325,6 +325,19 @@
               "en": "Session name"
             },
             "id": "id",
+            "css": "col-md-12"
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "Hola Mundo",
+              "en": "Hello World"
+            },
+            "title": {
+              "es": "Texto",
+              "en": "Text"
+            },
+            "id": "keys",
             "css": "col-md-12"
           },
           {

@@ -34,8 +34,8 @@ BASE_PATH = tmp_global_obj["basepath"]
 MODULE_PATH = BASE_PATH + 'modules' + os.sep + 'Terminal_emulator' + os.sep
 LOG_PATH = MODULE_PATH + "logs" + os.sep
 
-platform = PLATFORM.split("-")[0]
-APP_PATH = MODULE_PATH + 'bin' + os.sep + platform + os.sep + "fileview" + os.sep + "fileview.exe"
+platform_ = PLATFORM.split("-")[0]
+APP_PATH = MODULE_PATH + 'bin' + os.sep + platform_ + os.sep + "fileview" + os.sep + "fileview.exe"
 
 cur_path = MODULE_PATH + 'libs' + os.sep
 if cur_path not in sys.path:
@@ -75,6 +75,14 @@ functions = {
     "tab": "sendTab"
 }
 
+session = GetParams('id')
+
+if not session:
+    session = SESSION_DEFAULT
+
+terminal_simulator = mod_terminal_emulator_sessions[session].get("terminal")
+terminal_log_path = mod_terminal_emulator_sessions[session].get("log_path")
+
 if module == "connect":
     host = GetParams('host')
     port = GetParams('port')
@@ -82,7 +90,6 @@ if module == "connect":
     protocol = GetParams('protocol')
     show = GetParams('show')
     config = GetParams('config')
-    session = GetParams('id')
 
     result = GetParams('result')
     try:
@@ -91,8 +98,6 @@ if module == "connect":
             port = '23'
         if not config:
             config = None
-        if not session:
-            session = SESSION_DEFAULT
 
         path = path = BASE_PATH + 'modules' + os.sep + 'Terminal_emulator' + os.sep + 'bin' + os.sep + "3270" + os.sep
         args = {
@@ -111,7 +116,6 @@ if module == "connect":
         }
 
         connected = terminal_simulator.connect()
-        create_log(terminal_simulator, terminal_log_path)
 
         if show and show == "True":
             print([APP_PATH, "-l=" + terminal_log_path])
@@ -130,20 +134,10 @@ if module == "connect":
 try:
 
     if module == "disconnect":
-
-        session = GetParams('id')
-
-        if not session:
-            session = SESSION_DEFAULT
-
-        terminal_simulator = mod_terminal_emulator_sessions[session]["terminal"]
-        terminal_log_path = mod_terminal_emulator_sessions[session]["log_path"]
         process = mod_terminal_emulator_sessions[session]["process"]
 
         terminal_simulator.endSession()
         terminal_simulator.disconnect()
-
-        create_log(terminal_simulator, terminal_log_path)
 
         import psutil
 
@@ -154,93 +148,57 @@ try:
     if module == "send_text":
 
         text = GetParams('text')
-        session = GetParams('id')
-
-        if not session:
-            session = SESSION_DEFAULT
-
-        terminal_simulator = mod_terminal_emulator_sessions[session]["terminal"]
-        terminal_log_path = mod_terminal_emulator_sessions[session]["log_path"]
 
         terminal_simulator.waitForField()
 
         terminal_simulator.sendText(text)
-        create_log(terminal_simulator, terminal_log_path)
 
     if module == "send_key":
-        key = GetParams('key')
-        session = GetParams('id')
+        key = GetParams('key') or ""
+        keys = GetParams("keys")
+        number = ()
 
         if not session:
             session = SESSION_DEFAULT
 
-        terminal_simulator = mod_terminal_emulator_sessions[session]["terminal"]
-        terminal_log_path = mod_terminal_emulator_sessions[session]["log_path"]
-
-        number = None
         if key.startswith("f"):
-            number = key[1:]
+            number = (key[1:])
             key = "f"
-        function = functions[key]
 
-        terminal_simulator.waitForField()
-        if number is None:
-            getattr(terminal_simulator, function)()
-        else:
-            getattr(terminal_simulator, function)(int(number))
+        function = functions.get(key)
 
-        create_log(terminal_simulator, terminal_log_path)
+        # terminal_simulator.waitForField()
+        if keys:
+            for key in keys:
+                terminal_simulator.p3270.s3270.do("Key({})".format(key))
+        if key:
+            getattr(terminal_simulator, function)(*number)
+
 
     if module == "move_cursor":
         position = GetParams('position')
         direction = GetParams('direction')
-        session = GetParams('id')
-
-        if not session:
-            session = SESSION_DEFAULT
-
-        terminal_simulator = mod_terminal_emulator_sessions[session]["terminal"]
-        terminal_log_path = mod_terminal_emulator_sessions[session]["log_path"]
 
         terminal_simulator.waitForField()
 
         if position:
             position = eval(position)
-            getattr(terminal_simulator, "moveTo")(*arg)
+            getattr(terminal_simulator, "moveTo")(*position)
         if direction:
             function = functions[direction]
             getattr(terminal_simulator, function)()
 
-        create_log(terminal_simulator, terminal_log_path)
-
     if module == "get_text":
         var = GetParams('result')
-        session = GetParams('id')
-
-        if not session:
-            session = SESSION_DEFAULT
-
-        terminal_simulator = mod_terminal_emulator_sessions[session]["terminal"]
-        terminal_log_path = mod_terminal_emulator_sessions[session]["log_path"]
 
         result = terminal_simulator.getScreen()
-
-        create_log(terminal_simulator, terminal_log_path)
         if var:
             SetVar(var, result)
 
     if module == "end_session":
 
-        session = GetParams('id')
-
-        if not session:
-            session = SESSION_DEFAULT
-
-        terminal_simulator = mod_terminal_emulator_sessions[session]["terminal"]
-        terminal_log_path = mod_terminal_emulator_sessions[session]["log_path"]
-
         terminal_simulator.endSession()
-        create_log(terminal_simulator, terminal_log_path)
+
 
     if module == "wait":
         from time import sleep, perf_counter
@@ -253,13 +211,6 @@ try:
         option = GetParams("condition")
         text = GetParams("text")
         result = GetParams("result")
-        session = GetParams('id')
-
-        if not session:
-            session = SESSION_DEFAULT
-
-        terminal_simulator = mod_terminal_emulator_sessions[session]["terminal"]
-        terminal_log_path = mod_terminal_emulator_sessions[session]["log_path"]
 
         screen = terminal_simulator.getScreen
         cursor = terminal_simulator.p3270.s3270.statusMsg.cursorPosition
@@ -282,6 +233,9 @@ try:
             connected = True
         if result:
             SetVar(result, connected)
+
+    if terminal_log_path and terminal_simulator is not None:
+        create_log(terminal_simulator, terminal_log_path)
 
 except Exception as e:
     print("\x1B[" + "31;40mError\x1B[" + "0m")
