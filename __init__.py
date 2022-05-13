@@ -1,5 +1,6 @@
 # coding: utf-8
-"""
+"""Module for terminal emulator.
+
 Base para desarrollo de modulos externos.
 Para obtener el modulo/Función que se esta llamando:
      GetParams("module")
@@ -11,27 +12,28 @@ Para obtener las variables enviadas desde formulario/comando Rocketbot:
 Para modificar la variable de Rocketbot:
     SetVar(Variable_Rocketbot, "dato")
 
-Para obtener una variable de Rocketbot:
-    var = GetVar(Variable_Rocketbot)
-
-Para obtener la Opcion seleccionada:
-    opcion = GetParams("option")
-
-
 Para instalar librerias se debe ingresar por terminal a la carpeta "libs"
 
     pip install <package> -t .
 
 """
+
+__version__ = "2.1.1"
+__author__ = "Danilo Toro"
+__update_by__ = "Danilo Toro"
+
+# ignore warning for rocketbot functions
+tmp_global_obj = tmp_global_obj #type:ignore
+GetParams = GetParams #type: ignore
+PrintException = PrintException #type: ignore
+SetVar = SetVar #type: ignore
+
+# Python modules
 import os
 import sys
 import platform
 import subprocess
 
-tmp_global_obj = tmp_global_obj #type:ignore
-GetParams = GetParams #type: ignore
-PrintException = PrintException #type: ignore
-SetVar = SetVar #type: ignore
 
 PLATFORM = platform.platform(terse=True)
 
@@ -43,6 +45,7 @@ LOG_PATH = MODULE_PATH + "logs" + os.sep
 platform_ = PLATFORM.split("-")[0]
 APP_PATH = MODULE_PATH + 'bin' + os.sep + platform_ + os.sep + "fileview" + os.sep + "fileview.exe"
 
+# Import module libs
 cur_path = MODULE_PATH + 'libs' + os.sep
 if cur_path not in sys.path:
     sys.path.append(cur_path)
@@ -50,10 +53,7 @@ if cur_path not in sys.path:
 from p5250 import P5250Client #type:ignore
 from terminal_emulator import create_terminal, create_log
 
-"""
-    Obtengo el modulo que fueron invocados
-"""
-module = GetParams("module")
+
 
 # Globals declared here
 global mod_terminal_emulator_sessions
@@ -81,6 +81,7 @@ functions = {
     "tab": "sendTab"
 }
 
+module = GetParams("module")
 session = GetParams('id')
 
 if not session:
@@ -115,7 +116,7 @@ if module == "connect":
         
         if protocol == "tls":
             args["enableTls"] = "yes"
-            
+           
         terminal_simulator = create_terminal(terminal_type, **args)
         terminal_log_path = LOG_PATH + session + ".txt"
         mod_terminal_emulator_sessions[session] = {
