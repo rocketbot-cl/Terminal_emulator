@@ -26,6 +26,12 @@ Para instalar librerias se debe ingresar por terminal a la carpeta "libs"
 import os
 import sys
 import platform
+import subprocess
+
+tmp_global_obj = tmp_global_obj #type:ignore
+GetParams = GetParams #type: ignore
+PrintException = PrintException #type: ignore
+SetVar = SetVar #type: ignore
 
 PLATFORM = platform.platform(terse=True)
 
@@ -41,8 +47,8 @@ cur_path = MODULE_PATH + 'libs' + os.sep
 if cur_path not in sys.path:
     sys.path.append(cur_path)
 
-from p5250 import P5250Client
-from terminal_emulator import *
+from p5250 import P5250Client #type:ignore
+from terminal_emulator import create_terminal, create_log
 
 """
     Obtengo el modulo que fueron invocados
@@ -55,7 +61,7 @@ global mod_terminal_emulator_sessions
 SESSION_DEFAULT = "default"
 # Initialize settings for the module here
 try:
-    if not mod_terminal_emulator_sessions:
+    if not mod_terminal_emulator_sessions: #type:ignore
         mod_terminal_emulator_sessions = {SESSION_DEFAULT: {}}
 except NameError:
     mod_terminal_emulator_sessions = {SESSION_DEFAULT: {}}
@@ -106,7 +112,10 @@ if module == "connect":
             "configFile": config,
             "path": path
         }
-
+        
+        if protocol == "tls":
+            args["enableTls"] = "yes"
+            
         terminal_simulator = create_terminal(terminal_type, **args)
         terminal_log_path = LOG_PATH + session + ".txt"
         mod_terminal_emulator_sessions[session] = {
@@ -121,13 +130,11 @@ if module == "connect":
             print([APP_PATH, "-l=" + terminal_log_path])
             process = subprocess.Popen([APP_PATH, "-l=" + terminal_log_path])
             mod_terminal_emulator_sessions[session]["process"] = process
-            print(process.pid)
         if result:
             SetVar(result, connected)
 
     except Exception as e:
         SetVar(result, False)
-        print("\x1B[" + "31;40mError\x1B[" + "0m")
         PrintException()
         raise e
 
@@ -203,7 +210,7 @@ try:
     if module == "wait":
         from time import sleep, perf_counter
 
-        ProcessTime = time.perf_counter
+        ProcessTime = perf_counter
         ProcessTime()
         start = ProcessTime()
 
@@ -238,7 +245,6 @@ try:
         create_log(terminal_simulator, terminal_log_path)
 
 except Exception as e:
-    print("\x1B[" + "31;40mError\x1B[" + "0m")
     PrintException()
     raise e
 
