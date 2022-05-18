@@ -53,8 +53,6 @@ if cur_path not in sys.path:
 from p5250 import P5250Client #type:ignore
 from terminal_emulator import create_terminal, create_log
 
-
-
 # Globals declared here
 global mod_terminal_emulator_sessions
 # Default declared here
@@ -66,7 +64,7 @@ try:
 except NameError:
     mod_terminal_emulator_sessions = {SESSION_DEFAULT: {}}
 
-functions = {
+FUNCTIONS_ = {
     "backSpace": "sendBackSpace",
     "backTab": "sendBackTab",
     "delChar": "delChar",
@@ -87,8 +85,9 @@ session = GetParams('id')
 if not session:
     session = SESSION_DEFAULT
 
-terminal_simulator = mod_terminal_emulator_sessions[session].get("terminal")
-terminal_log_path = mod_terminal_emulator_sessions[session].get("log_path")
+if session in mod_terminal_emulator_sessions:
+    terminal_simulator = mod_terminal_emulator_sessions[session].get("terminal")
+    terminal_log_path = mod_terminal_emulator_sessions[session].get("log_path")
 
 if module == "connect":
     host = GetParams('host')
@@ -147,11 +146,14 @@ try:
         terminal_simulator.endSession()
         terminal_simulator.disconnect()
 
-        import psutil
+        if process is not None:
+            import psutil
 
-        for p in psutil.process_iter(attrs=["pid", "name"]):
-            if p.info["pid"] == process.pid:
-                p.kill()
+            for p in psutil.process_iter(attrs=["pid", "name"]):
+                if p.info["pid"] == process.pid:
+                    p.kill()
+
+        terminal_simulator = None
 
     if module == "send_text":
 
@@ -162,25 +164,32 @@ try:
         terminal_simulator.sendText(text)
 
     if module == "send_key":
-        key = GetParams('key') or ""
-        keys = GetParams("keys")
-        number = ()
+        params_key = GetParams('key') or ""
+        params_keys = GetParams("keys")
+        params_only_pf = GetParams("only_PF")
+        number = []
+        key = params_key
 
         if not session:
             session = SESSION_DEFAULT
 
         if key.startswith("f"):
-            number = (key[1:])
+            number = [int(params_key[1:])]
             key = "f"
 
-        function = functions.get(key)
+        function = FUNCTIONS_.get(key)
 
         # terminal_simulator.waitForField()
-        if keys:
-            for key in keys:
-                terminal_simulator.p3270.s3270.do("Key({})".format(key))
-        if key:
-            getattr(terminal_simulator, function)(*number)
+        if params_key and params_only_pf=="True":
+            terminal_simulator.p3270.s3270.do("PF({})".format(number[0]))
+        elif params_key:
+            print(terminal_simulator, function)
+            getattr(terminal_simulator, function)(*number)        
+        
+        elif params_keys:
+            for key in params_keys:
+                terminal_simulator.p3270.s3270.do("Key({})".format(key[0]))
+
 
 
     if module == "move_cursor":
@@ -193,7 +202,7 @@ try:
             position = eval(position)
             getattr(terminal_simulator, "moveTo")(*position)
         if direction:
-            function = functions[direction]
+            function = FUNCTIONS_[direction]
             getattr(terminal_simulator, function)()
 
     if module == "get_text":
