@@ -114,7 +114,7 @@ if module == "connect":
         }
         
         if protocol == "tls":
-            args["enableTls"] = "yes"
+            args["enableTLS"] = "yes"
            
         terminal_simulator = create_terminal(terminal_type, **args)
         terminal_log_path = LOG_PATH + session + ".txt"
