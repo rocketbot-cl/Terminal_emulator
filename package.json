@@ -2,9 +2,9 @@
   "author": "Danilo Toro",
   "description": "Module to perform actions on a terminal emulator",
   "disclaimer": "THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "license": "MIT",
-  "homepage": "http://rocketbot.co",
+  "homepage": "http://rocketbot.com",
   "linux": true,
   "windows": true,
   "mac": true,
@@ -41,6 +41,10 @@
               "es": "Nombre de sesión",
               "en": "Session name"
             },
+            "description": {
+              "es": "Nombre de la sesión para identificarla",
+              "en": "Session name to identify it"
+            },
             "id": "id",
             "css": "col-md-4"
           },
@@ -53,6 +57,10 @@
             "title": {
               "es": "Host",
               "en": "Host"
+            },
+            "description": {
+              "es": "Host de la terminal",
+              "en": "Terminal host"
             },
             "id": "host",
             "css": "col-md-4"
@@ -67,11 +75,19 @@
               "es": "Port",
               "en": "Port"
             },
+            "description": {
+              "es": "Puerto de la terminal",
+              "en": "Terminal port"
+            },
             "id": "port",
             "css": "col-md-4"
           },
           {
             "type": "select",
+            "placeholder": {
+              "es": "3270",
+              "en": "3270"
+            },
             "options": [
               {
                 "title": "--Seleccione--",
@@ -90,11 +106,19 @@
               "es": "Tipo de terminal",
               "en": "Terminal type:"
             },
+            "description": {
+              "es": "Tipo de terminal a conectar",
+              "en": "Terminal type to connect"
+            },
             "id": "type",
             "css": "col-md-3"
           },
           {
             "type": "select",
+            "placeholder": {
+              "es": "SSL",
+              "en": "SSL"
+            },
             "options": [
               {
                 "title": "None",
@@ -113,15 +137,23 @@
               "es": "Seguridad",
               "en": "Seguridad"
             },
+            "description": {
+              "es": "Tipo de seguridad a utilizar",
+              "en": "Security type to use"
+            },
             "id": "protocol",
             "css": "col-md-3"
           },
            {
             "type": "checkbox",
-            "placeholder": "",
+            "placeholder": "True",
             "title": {
               "es": "Mostrar terminal",
               "en": "Show terminal"
+            },
+            "description": {
+              "es": "Mostrar la terminal al conectarse",
+              "en": "Show the terminal when connected"
             },
             "id": "show",
             "css": "col-md-3"
@@ -136,6 +168,10 @@
               "es": "Asignar a variable",
               "en": "Result"
             },
+            "description": {
+              "es": "Asigna el resultado de la conexión a una variable",
+              "en": "Assign the connection result to a variable"
+            },
             "id": "result",
             "css": "col-md-3"
           },
@@ -148,7 +184,10 @@
             "title": {
               "es": "Archivo de configuración",
               "en": "Configuration file"
-
+            },
+            "description": {
+              "es": "Archivo de configuración de la terminal",
+              "en": "Terminal configuration file"
             },
             "id": "path",
             "css": "col-md-12"
@@ -190,6 +229,10 @@
               "es": "Nombre de sesión",
               "en": "Session name"
             },
+            "description": {
+              "es": "Nombre de la sesión de la terminal",
+              "en": "Terminal session name"
+            },
             "id": "id",
             "css": "col-md-12"
           }
@@ -229,6 +272,10 @@
             "title": {
               "es": "Nombre de sesión",
               "en": "Session name"
+            },
+            "description": {
+              "es": "Nombre de la sesión de la terminal",
+              "en": "Terminal session name"
             },
             "id": "id",
             "css": "col-md-12"
@@ -270,19 +317,26 @@
               "es": "Nombre de sesión",
               "en": "Session name"
             },
+            "description": {
+              "es": "Nombre de la sesión de la terminal",
+              "en": "Terminal session name"
+            },
             "id": "id",
             "css": "col-md-12"
           },
           {
             "type": "input",
             "placeholder": {
-
               "es": "Usuario 1",
               "en": "User 1"
             },
             "title": {
               "es": "Texto",
               "en": "Text:"
+            },
+            "description": {
+              "es": "Texto a enviar",
+              "en": "Text to send"
             },
             "id": "text",
             "css": "col-md-12"
@@ -324,6 +378,10 @@
               "es": "Nombre de sesión",
               "en": "Session name"
             },
+            "description": {
+              "es": "Nombre de la sesión de la terminal",
+              "en": "Terminal session name"
+            },
             "id": "id",
             "css": "col-md-12"
           },
@@ -337,11 +395,19 @@
               "es": "Texto",
               "en": "Text"
             },
+            "description": {
+              "es": "Texto a enviar",
+              "en": "Text to send"
+            },
             "id": "keys",
             "css": "col-md-12"
           },
           {
             "type": "select",
+            "placeholder": {
+              "es": "BackSpace",
+              "en": "BackSpace"
+            },
             "options": [
               {
                 "title": "--Seleccione--",
@@ -424,6 +490,10 @@
               "es": "Tecla",
               "en": "Keys:"
             },
+            "description": {
+              "es": "Tecla a enviar",
+              "en": "Key to send"
+            },
             "id": "key",
             "css": "col-md-12"
           }
@@ -449,7 +519,7 @@
       },
       "es": {
         "title": "Mover cursor",
-        "description": "Mueve el cursor "
+        "description": "Mueve el cursor a una posición específica en el terminal"
       },
       "form": {
         "css": "modal-md",
@@ -464,6 +534,10 @@
               "es": "Nombre de sesión",
               "en": "Session name"
             },
+            "description": {
+              "es": "Nombre de la sesión a la que se le enviará la tecla",
+              "en": "Session name to send the key"
+            },
             "id": "id",
             "css": "col-md-12"
           },
@@ -477,11 +551,19 @@
               "es": "Mover por posición",
               "en": "Move to position"
             },
+            "description": {
+              "es": "Mover el cursor a una posición específica",
+              "en": "Move cursor to specific position"
+            },
             "id": "position",
             "css": "col-md-12"
           },
           {
             "type": "select",
+            "placeholder": {
+              "es": "Cursor Down",
+              "en": "Cursor Down"
+            },
             "options": [
               {
                 "title": "--Seleccione--",
@@ -507,6 +589,10 @@
             "title": {
               "es": "Dirección",
               "en": "Direction:"
+            },
+            "description": {
+              "es": "Dirección a la que se moverá el cursor",
+              "en": "Direction to move the cursor"
             },
             "id": "direction",
             "css": "col-md-12"
@@ -549,6 +635,14 @@
               "es": "Nombre de sesión",
               "en": "Session name"
             },
+            "description": {
+              "es": "Nombre de la sesión de la terminal",
+              "en": "Name of the terminal session"
+            },
+            "help": {
+              "es": "Nombre de la sesión de la terminal",
+              "en": "Name of the terminal session"
+            },
             "id": "id",
             "css": "col-md-12"
           },
@@ -560,7 +654,11 @@
             },
             "title": {
               "es": "Variable donde guardar el resultado",
-              "en": "Variable :"
+              "en": "Variable:"
+            },
+            "description": {
+              "es": "Variable donde se almacena el resultado",
+              "en": "Variable where the result is stored"
             },
             "help": {
               "en": "Variable where the result is stored without {}",
@@ -606,6 +704,10 @@
               "es": "Nombre de sesión",
               "en": "Session name"
             },
+            "description": {
+              "es": "Nombre de la sesión de la terminal",
+              "en": "Terminal session name"
+            },
             "id": "id",
             "css": "col-md-6"
           },
@@ -618,6 +720,10 @@
             "title": {
               "es": "Tiempo de espera",
               "en": "Wait time"
+            },
+            "description": {
+              "es": "Tiempo de espera en segundos",
+              "en": "Wait time in seconds"
             },
             "id": "time",
             "css": "col-md-6"
@@ -632,11 +738,19 @@
               "es": "Asignar a variable",
               "en": "Result"
             },
+            "description": {
+              "es": "Asigna el resultado a una variable",
+              "en": "Assign the result to a variable"
+            },
             "id": "result",
             "css": "col-md-6"
           },
           {
             "type": "select",
+            "placeholder": {
+              "es": "Text appears",
+              "en": "Text appears"
+            },
             "options": [
               {
                 "title": "Text appears",
@@ -663,6 +777,10 @@
               "es": "Esperar por",
               "en": "Wait by:"
             },
+            "description": {
+              "es": "Espera por la condición seleccionada",
+              "en": "Wait by the selected condition"
+            },
             "id": "condition",
             "css": "col-md-6"
 
@@ -676,6 +794,10 @@
             "title": {
               "es": "Texto",
               "en": "Text"
+            },
+            "description": {
+              "es": "Texto a esperar",
+              "en": "Text to wait"
             },
             "id": "text",
             "css": "col-md-12"
