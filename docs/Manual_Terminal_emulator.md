@@ -85,3 +85,4 @@ Wait for text on terminal by specific condition
 |Result|Assign the result to a variable|condition|
 |Wait by|Wait by the selected condition|Text appears|
 |Text|Text to wait|Option|
+
