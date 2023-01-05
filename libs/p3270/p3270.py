@@ -101,7 +101,8 @@ class P3270Client():
         self.timeout = timeoutInSec
         self.path = path
         self.conf = Config(cfgFile=self.configFile, hostName=self.hostName,
-                           hostPort=self.hostPort, luName=self.luName, modelName=self.modelName, codePage=codePage)
+                           hostPort=self.hostPort, luName=self.luName, modelName=self.modelName, codePage=codePage, enableTLS=self.enableTLS)
+                           
         if self.conf.isValid():
             self.subpro = None
             self.makeArgs()
@@ -112,8 +113,7 @@ class P3270Client():
         self.__class__.numOfInstances += 1
 
     def makeArgs(self):
-        """ Construct the list of arguments to be used for interacting with s3270
-        """
+        """Construct the list of arguments to be used for interacting with s3270."""
         self.args = ['s3270']
         if self.path is not None:
             self.args = [self.path + 's3270']
