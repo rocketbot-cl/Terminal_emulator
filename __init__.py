@@ -85,6 +85,8 @@ session = GetParams('id')
 if not session:
     session = SESSION_DEFAULT
 
+session = session.replace(" ", "_")
+
 if session in mod_terminal_emulator_sessions:
     terminal_simulator = mod_terminal_emulator_sessions[session].get("terminal")
     terminal_log_path = mod_terminal_emulator_sessions[session].get("log_path")
@@ -128,8 +130,14 @@ if module == "connect":
 
         if show and show == "True":
             print([APP_PATH, "-l=" + terminal_log_path])
-            process = subprocess.Popen([APP_PATH, "-l=" + terminal_log_path])
+            process = subprocess.Popen([APP_PATH, "-l=" + terminal_log_path], shell=True)
             mod_terminal_emulator_sessions[session]["process"] = process
+            
+        try:
+            print("Terminal arguments: ", " ".join(mod_terminal_emulator_sessions[session]["terminal"].args))
+        except:
+            pass
+        
         if result:
             SetVar(result, connected)
 
@@ -167,6 +175,7 @@ try:
         params_key = GetParams('key') or ""
         params_keys = GetParams("keys")
         params_only_pf = GetParams("only_PF")
+        q = GetParams ("q")
         number = []
         key = params_key
 
@@ -177,25 +186,48 @@ try:
             number = [int(params_key[1:])]
             key = "f"
 
+        if params_only_pf not in [None, ""]:
+            params_only_pf = eval(params_only_pf)
+        
         function = FUNCTIONS_.get(key)
 
-        # terminal_simulator.waitForField()
-        if params_key and params_only_pf=="True":
-            terminal_simulator.p3270.s3270.do("PF({})".format(number[0]))
-        elif params_key:
-            print(terminal_simulator, function)
-            getattr(terminal_simulator, function)(*number)        
-        
-        elif params_keys:
-            for key in params_keys:
-                terminal_simulator.p3270.s3270.do("Key({})".format(key[0]))
-
-
+        if not q:
+            q = 1
+        else:
+            q = eval(q)
+            if not isinstance(q, int):
+                raise Exception ("Quantity must be an integer.")
+        for times in range(q):
+            # terminal_simulator.waitForField()
+            if params_key and params_only_pf == True:
+                try:
+                    # This is for Terminal Type 5250
+                    terminal_simulator.p3270.s3270.do("PF({})".format(number[0]))
+                except:
+                    # This is for Terminal Type 3270
+                    terminal_simulator.s3270.do("PF({})".format(number[0]))
+            elif params_key:
+                print(terminal_simulator, " ", function, " ", number)
+                try:
+                    # This is for Terminal Type 5250
+                    getattr(terminal_simulator, function)(*number)
+                except:
+                    # This is for Terminal Type 3270
+                    number = number[0]
+                    if 0 < number < 13:
+                        terminal_simulator.p3270.sendPA(1)
+                        terminal_simulator.p3270.sendPF(number)
+                    elif 12 < number < 25:
+                        terminal_simulator.p3270.sendPA(2)
+                        terminal_simulator.p3270.sendPF(number)      
+            elif params_keys:
+                for key in params_keys:
+                    terminal_simulator.p3270.s3270.do("Key({})".format(key[0]))
 
     if module == "move_cursor":
         position = GetParams('position')
         direction = GetParams('direction')
-
+        q = GetParams ("q")
         terminal_simulator.waitForField()
 
         if position:
@@ -203,7 +235,15 @@ try:
             getattr(terminal_simulator, "moveTo")(*position)
         if direction:
             function = FUNCTIONS_[direction]
-            getattr(terminal_simulator, function)()
+            
+            if not q:
+                q = 1
+            else:
+                q = eval(q)
+                if not isinstance(q, int):
+                    raise Exception ("Quantity must be an integer.")
+            for times in range(q):
+                getattr(terminal_simulator, function)()
 
     if module == "get_text":
         var = GetParams('result')

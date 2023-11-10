@@ -1,8 +1,13 @@
 {
   "author": "Danilo Toro",
-  "description": "Module to perform actions on a terminal emulator",
+  "description": "Module to perform actions on a terminal emulator | Modulo para ejecutar acciones en un emulador de terminal",
+  "description_lang":{
+    "en": "This module allows to perform actions on a terminal emulator, such as connecting, sending text, sending keys, moving the cursor, etc.",
+    "es": "Este módulo permite realizar acciones en un emulador de terminal, como conectar, enviar texto, enviar teclas, mover el cursor, etc.",
+    "pr": "Este módulo permite realizar ações em um emulador de terminal, como conectar, enviar texto, enviar chaves, mover o cursor, etc."
+  },
   "disclaimer": "THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.",
-  "version": "2.1.2",
+  "version": "2.2.4",
   "license": "MIT",
   "homepage": "http://rocketbot.com",
   "linux": true,
@@ -15,7 +20,8 @@
   },
   "title": {
     "en": "Terminal Emulator",
-    "es": "Terminal Emulator"
+    "es": "Terminal Emulator",
+    "pr": "Terminal Emulator"
   },
   "icon": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDQ3Mi42MTUgNDcyLjYxNSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDcyLjYxNSA0NzIuNjE1OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8Zz4NCgk8Zz4NCgkJPHBhdGggZD0iTTAsMC43NTZ2NDcxLjEwM2g0NzIuNjE1VjAuNzU2SDB6IE03NC45NjksMzkzLjQwNGw3MS42ODYtNzEuNjkxbC03MS42ODYtNzEuNjg3bDEzLjM2Ni0xMy4zNjZsODUuMDUyLDg1LjA1Mw0KCQkJTDg4LjMzNSw0MDYuNzdMNzQuOTY5LDM5My40MDR6IE0yNzUuMjYyLDQwOS41MzlIMTYwLjAyMXYtMTguOTA1aDExNS4yNDFWNDA5LjUzOXoiLz4NCgk8L2c+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8L3N2Zz4NCg==",
   "children": [
@@ -41,10 +47,6 @@
               "es": "Nombre de sesión",
               "en": "Session name"
             },
-            "description": {
-              "es": "Nombre de la sesión para identificarla",
-              "en": "Session name to identify it"
-            },
             "id": "id",
             "css": "col-md-4"
           },
@@ -57,10 +59,6 @@
             "title": {
               "es": "Host",
               "en": "Host"
-            },
-            "description": {
-              "es": "Host de la terminal",
-              "en": "Terminal host"
             },
             "id": "host",
             "css": "col-md-4"
@@ -75,19 +73,11 @@
               "es": "Port",
               "en": "Port"
             },
-            "description": {
-              "es": "Puerto de la terminal",
-              "en": "Terminal port"
-            },
             "id": "port",
             "css": "col-md-4"
           },
           {
             "type": "select",
-            "placeholder": {
-              "es": "3270",
-              "en": "3270"
-            },
             "options": [
               {
                 "title": "--Seleccione--",
@@ -106,19 +96,11 @@
               "es": "Tipo de terminal",
               "en": "Terminal type:"
             },
-            "description": {
-              "es": "Tipo de terminal a conectar",
-              "en": "Terminal type to connect"
-            },
             "id": "type",
-            "css": "col-md-3"
+            "css": "col-md-4"
           },
           {
             "type": "select",
-            "placeholder": {
-              "es": "SSL",
-              "en": "SSL"
-            },
             "options": [
               {
                 "title": "None",
@@ -134,46 +116,25 @@
               }
             ],
             "title": {
-              "es": "Seguridad",
-              "en": "Seguridad"
-            },
-            "description": {
-              "es": "Tipo de seguridad a utilizar",
-              "en": "Security type to use"
+              "es": "Protocolo de seguridad",
+              "en": "Safety protocol"
             },
             "id": "protocol",
-            "css": "col-md-3"
+            "css": "col-md-4"
           },
            {
             "type": "checkbox",
-            "placeholder": "True",
+            "placeholder": "",
             "title": {
               "es": "Mostrar terminal",
               "en": "Show terminal"
             },
             "description": {
-              "es": "Mostrar la terminal al conectarse",
-              "en": "Show the terminal when connected"
+              "es": "Si se marca, se mostrara una terminal para revisar ejecuciones del robot. Herramienta para desarollo.",
+              "en": "If checked, a terminal will be displayed to review robot executions. Development tool."
             },
             "id": "show",
-            "css": "col-md-3"
-          },
-          {
-            "type": "input",
-            "placeholder": {
-              "es": "connected",
-              "en": "connected"
-            },
-            "title": {
-              "es": "Asignar a variable",
-              "en": "Result"
-            },
-            "description": {
-              "es": "Asigna el resultado de la conexión a una variable",
-              "en": "Assign the connection result to a variable"
-            },
-            "id": "result",
-            "css": "col-md-3"
+            "css": "col-md-4"
           },
           {
             "type": "file_select",
@@ -185,12 +146,26 @@
               "es": "Archivo de configuración",
               "en": "Configuration file"
             },
-            "description": {
-              "es": "Archivo de configuración de la terminal",
-              "en": "Terminal configuration file"
-            },
             "id": "path",
             "css": "col-md-12"
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "connected",
+              "en": "connected"
+            },
+            "title": {
+              "es": "Variable donde guardar el resultado",
+              "en": "Variable where to save the result"
+            },
+            "help": {
+              "en": "Variable where the result is stored without {}",
+              "es": "Variable donde se almacena el resultado sin {}"
+            },
+            "remove_vars": true,
+            "id": "result",
+            "css": "col-md-6"
           }
         ]
       },
@@ -209,96 +184,8 @@
     },
     {
       "en": {
-        "title": "Disconnect",
-        "description": "Disconnect terminal"
-      },
-      "es": {
-        "title": "Desconectar",
-        "description": "Desconecta con la terminal"
-      },
-      "form": {
-        "css": "modal-md",
-        "inputs": [
-          {
-            "type": "input",
-            "placeholder": {
-              "es": "Terminal_1",
-              "en": "Terminal_1"
-            },
-            "title": {
-              "es": "Nombre de sesión",
-              "en": "Session name"
-            },
-            "description": {
-              "es": "Nombre de la sesión de la terminal",
-              "en": "Terminal session name"
-            },
-            "id": "id",
-            "css": "col-md-12"
-          }
-        ]
-      },
-      "video_youtube": "",
-      "icon": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDQ3Mi42MTUgNDcyLjYxNSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDcyLjYxNSA0NzIuNjE1OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8Zz4NCgk8Zz4NCgkJPHBhdGggZD0iTTAsMC43NTZ2NDcxLjEwM2g0NzIuNjE1VjAuNzU2SDB6IE03NC45NjksMzkzLjQwNGw3MS42ODYtNzEuNjkxbC03MS42ODYtNzEuNjg3bDEzLjM2Ni0xMy4zNjZsODUuMDUyLDg1LjA1Mw0KCQkJTDg4LjMzNSw0MDYuNzdMNzQuOTY5LDM5My40MDR6IE0yNzUuMjYyLDQwOS41MzlIMTYwLjAyMXYtMTguOTA1aDExNS4yNDFWNDA5LjUzOXoiLz4NCgk8L2c+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8L3N2Zz4NCg==",
-      "module": "disconnect",
-      "module_name": "Terminal_emulator",
-      "visible": true,
-      "options": false,
-      "father": "module",
-      "group": "scripts",
-      "linux": false,
-      "windows": true,
-      "mac": true,
-      "docker": true
-    },
-    {
-      "en": {
-        "title": "End Session",
-        "description": "Finish terminal session"
-      },
-      "es": {
-        "title": "Cerrar sesión",
-        "description": "Finaliza la sesión en la terminal"
-      },
-      "form": {
-        "css": "modal-md",
-        "inputs": [
-          {
-            "type": "input",
-            "placeholder": {
-              "es": "Terminal_1",
-              "en": "Terminal_1"
-            },
-            "title": {
-              "es": "Nombre de sesión",
-              "en": "Session name"
-            },
-            "description": {
-              "es": "Nombre de la sesión de la terminal",
-              "en": "Terminal session name"
-            },
-            "id": "id",
-            "css": "col-md-12"
-          }
-        ]
-      },
-      "video_youtube": "",
-      "icon": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDQ3Mi42MTUgNDcyLjYxNSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDcyLjYxNSA0NzIuNjE1OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8Zz4NCgk8Zz4NCgkJPHBhdGggZD0iTTAsMC43NTZ2NDcxLjEwM2g0NzIuNjE1VjAuNzU2SDB6IE03NC45NjksMzkzLjQwNGw3MS42ODYtNzEuNjkxbC03MS42ODYtNzEuNjg3bDEzLjM2Ni0xMy4zNjZsODUuMDUyLDg1LjA1Mw0KCQkJTDg4LjMzNSw0MDYuNzdMNzQuOTY5LDM5My40MDR6IE0yNzUuMjYyLDQwOS41MzlIMTYwLjAyMXYtMTguOTA1aDExNS4yNDFWNDA5LjUzOXoiLz4NCgk8L2c+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8L3N2Zz4NCg==",
-      "module": "disconnect",
-      "module_name": "Terminal_emulator",
-      "visible": true,
-      "options": false,
-      "father": "module",
-      "group": "scripts",
-      "linux": false,
-      "windows": true,
-      "mac": true,
-      "docker": true
-    },
-    {
-      "en": {
         "title": "Send Text",
-        "description": "Send text to Terminal"
+        "description": "Send text to the terminal"
       },
       "es": {
         "title": "Enviar Texto",
@@ -317,26 +204,23 @@
               "es": "Nombre de sesión",
               "en": "Session name"
             },
-            "description": {
-              "es": "Nombre de la sesión de la terminal",
-              "en": "Terminal session name"
-            },
             "id": "id",
             "css": "col-md-12"
           },
           {
             "type": "input",
             "placeholder": {
+
               "es": "Usuario 1",
               "en": "User 1"
             },
             "title": {
               "es": "Texto",
-              "en": "Text:"
+              "en": "Text"
             },
             "description": {
-              "es": "Texto a enviar",
-              "en": "Text to send"
+              "es": "Texto a envir a la terminal",
+              "en": "Text to send to the termianl"
             },
             "id": "text",
             "css": "col-md-12"
@@ -359,11 +243,11 @@
     {
       "en": {
         "title": "Send Key",
-        "description": "Send key to Terminal"
+        "description": "Send a key or a secuence of keys to Terminal"
       },
       "es": {
         "title": "Enviar Tecla",
-        "description": "Envía tecla a la terminal"
+        "description": "Envía una tecla o secuencia de teclas a la terminal"
       },
       "form": {
         "css": "modal-lg",
@@ -378,10 +262,6 @@
               "es": "Nombre de sesión",
               "en": "Session name"
             },
-            "description": {
-              "es": "Nombre de la sesión de la terminal",
-              "en": "Terminal session name"
-            },
             "id": "id",
             "css": "col-md-12"
           },
@@ -392,22 +272,18 @@
               "en": "Hello World"
             },
             "title": {
-              "es": "Texto",
-              "en": "Text"
+              "es": "Keys",
+              "en": "Teclas"
             },
             "description": {
-              "es": "Texto a enviar",
-              "en": "Text to send"
+              "es": "Teclas a enviar",
+              "en": "Keys to send"
             },
             "id": "keys",
             "css": "col-md-12"
           },
           {
             "type": "select",
-            "placeholder": {
-              "es": "BackSpace",
-              "en": "BackSpace"
-            },
             "options": [
               {
                 "title": "--Seleccione--",
@@ -482,20 +358,99 @@
                 "value": "f12"
               },
               {
+                "title": "F13",
+                "value": "f13"
+              },
+              {
+                "title": "F14",
+                "value": "f14"
+              },
+              {
+                "title": "F15",
+                "value": "f15"
+              },
+              {
+                "title": "F16",
+                "value": "f16"
+              },
+              {
+                "title": "F17",
+                "value": "f17"
+              },
+              {
+                "title": "F18",
+                "value": "f18"
+              },
+              {
+                "title": "F19",
+                "value": "f19"
+              },
+              {
+                "title": "F20",
+                "value": "f20"
+              },
+              {
+                "title": "F21",
+                "value": "f21"
+              },
+              {
+                "title": "F22",
+                "value": "f22"
+              },
+              {
+                "title": "F23",
+                "value": "f23"
+              },
+              {
+                "title": "F24",
+                "value": "f24"
+              },
+              {
                 "title": "Tab",
                 "value": "tab"
               }
             ],
             "title": {
               "es": "Tecla",
-              "en": "Keys:"
+              "en": "Keys"
             },
             "description": {
               "es": "Tecla a enviar",
               "en": "Key to send"
             },
             "id": "key",
-            "css": "col-md-12"
+            "css": "col-md-3"
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "1",
+              "en": "1"
+            },
+            "title": {
+              "es": "Cantidad",
+              "en": "Cantidad"
+            },
+            "description": {
+              "es": "Cantidad de veces a enviar la tecla",
+              "en": "Number of times to send the key"
+            },
+            "id": "q",
+            "css": "col-md-3"
+          },
+          {
+            "type": "checkbox",
+            "placeholder": "",
+            "title": {
+              "es": "Enviar tecla F sin comando PA ",
+              "en": "Send F key without PA command"
+            },
+            "description": {
+              "es": "Enviar tecla de Función de Programa (PF) sin tecla de Atención de Programa (PA).",
+              "en": "Send Program Function (PF) key without Program Attention (PA) key."
+            },
+            "id": "only_PF",
+            "css": "col-md-6"
           }
         ]
       },
@@ -519,7 +474,7 @@
       },
       "es": {
         "title": "Mover cursor",
-        "description": "Mueve el cursor a una posición específica en el terminal"
+        "description": "Mueve el cursor "
       },
       "form": {
         "css": "modal-md",
@@ -534,10 +489,6 @@
               "es": "Nombre de sesión",
               "en": "Session name"
             },
-            "description": {
-              "es": "Nombre de la sesión a la que se le enviará la tecla",
-              "en": "Session name to send the key"
-            },
             "id": "id",
             "css": "col-md-12"
           },
@@ -551,19 +502,11 @@
               "es": "Mover por posición",
               "en": "Move to position"
             },
-            "description": {
-              "es": "Mover el cursor a una posición específica",
-              "en": "Move cursor to specific position"
-            },
             "id": "position",
             "css": "col-md-12"
           },
           {
             "type": "select",
-            "placeholder": {
-              "es": "Cursor Down",
-              "en": "Cursor Down"
-            },
             "options": [
               {
                 "title": "--Seleccione--",
@@ -591,11 +534,28 @@
               "en": "Direction:"
             },
             "description": {
-              "es": "Dirección a la que se moverá el cursor",
-              "en": "Direction to move the cursor"
+              "es": "Dirección a donde mover el cursor",
+              "en": "Direction to move the cursor to"
             },
             "id": "direction",
-            "css": "col-md-12"
+            "css": "col-md-9"
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "1",
+              "en": "1"
+            },
+            "title": {
+              "es": "Cantidad",
+              "en": "Cantidad"
+            },
+            "description": {
+              "es": "Cantidad de lugares a mover",
+              "en": "Number of places to move"
+            },
+            "id": "q",
+            "css": "col-md-3"
           }
         ]
       },
@@ -635,14 +595,6 @@
               "es": "Nombre de sesión",
               "en": "Session name"
             },
-            "description": {
-              "es": "Nombre de la sesión de la terminal",
-              "en": "Name of the terminal session"
-            },
-            "help": {
-              "es": "Nombre de la sesión de la terminal",
-              "en": "Name of the terminal session"
-            },
             "id": "id",
             "css": "col-md-12"
           },
@@ -654,18 +606,15 @@
             },
             "title": {
               "es": "Variable donde guardar el resultado",
-              "en": "Variable:"
-            },
-            "description": {
-              "es": "Variable donde se almacena el resultado",
-              "en": "Variable where the result is stored"
+              "en": "Variable where to save the result"
             },
             "help": {
               "en": "Variable where the result is stored without {}",
               "es": "Variable donde se almacena el resultado sin {}"
             },
+            "remove_vars": true,
             "id": "result",
-            "css": "col-md-12"
+            "css": "col-md-6"
           }
         ]
       },
@@ -704,10 +653,6 @@
               "es": "Nombre de sesión",
               "en": "Session name"
             },
-            "description": {
-              "es": "Nombre de la sesión de la terminal",
-              "en": "Terminal session name"
-            },
             "id": "id",
             "css": "col-md-6"
           },
@@ -722,35 +667,14 @@
               "en": "Wait time"
             },
             "description": {
-              "es": "Tiempo de espera en segundos",
-              "en": "Wait time in seconds"
+              "es": "Tiempo maximo de espera",
+              "en": "Max waiting time"
             },
             "id": "time",
             "css": "col-md-6"
           },
           {
-            "type": "input",
-            "placeholder": {
-              "es": "condition",
-              "en": "condition"
-            },
-            "title": {
-              "es": "Asignar a variable",
-              "en": "Result"
-            },
-            "description": {
-              "es": "Asigna el resultado a una variable",
-              "en": "Assign the result to a variable"
-            },
-            "id": "result",
-            "css": "col-md-6"
-          },
-          {
             "type": "select",
-            "placeholder": {
-              "es": "Text appears",
-              "en": "Text appears"
-            },
             "options": [
               {
                 "title": "Text appears",
@@ -777,10 +701,6 @@
               "es": "Esperar por",
               "en": "Wait by:"
             },
-            "description": {
-              "es": "Espera por la condición seleccionada",
-              "en": "Wait by the selected condition"
-            },
             "id": "condition",
             "css": "col-md-6"
 
@@ -796,17 +716,115 @@
               "en": "Text"
             },
             "description": {
-              "es": "Texto a esperar",
-              "en": "Text to wait"
+              "es": "Texto por el cual se esperara",
+              "en": "Text to wait for"
             },
             "id": "text",
             "css": "col-md-12"
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "condition",
+              "en": "condition"
+            },
+            "title": {
+              "es": "Variable donde guardar el resultado",
+              "en": "Variable where to save the result"
+            },
+            "help": {
+              "en": "Variable where the result is stored without {}",
+              "es": "Variable donde se almacena el resultado sin {}"
+            },
+            "remove_vars": true,
+            "id": "result",
+            "css": "col-md-6"
           }
         ]
       },
       "video_youtube": "",
       "icon": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDQ3Mi42MTUgNDcyLjYxNSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDcyLjYxNSA0NzIuNjE1OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8Zz4NCgk8Zz4NCgkJPHBhdGggZD0iTTAsMC43NTZ2NDcxLjEwM2g0NzIuNjE1VjAuNzU2SDB6IE03NC45NjksMzkzLjQwNGw3MS42ODYtNzEuNjkxbC03MS42ODYtNzEuNjg3bDEzLjM2Ni0xMy4zNjZsODUuMDUyLDg1LjA1Mw0KCQkJTDg4LjMzNSw0MDYuNzdMNzQuOTY5LDM5My40MDR6IE0yNzUuMjYyLDQwOS41MzlIMTYwLjAyMXYtMTguOTA1aDExNS4yNDFWNDA5LjUzOXoiLz4NCgk8L2c+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8L3N2Zz4NCg==",
       "module": "wait",
+      "module_name": "Terminal_emulator",
+      "visible": true,
+      "options": false,
+      "father": "module",
+      "group": "scripts",
+      "linux": false,
+      "windows": true,
+      "mac": true,
+      "docker": true
+    },
+    {
+      "en": {
+        "title": "Disconnect",
+        "description": "Disconnect terminal"
+      },
+      "es": {
+        "title": "Desconectar",
+        "description": "Desconecta con la terminal"
+      },
+      "form": {
+        "css": "modal-md",
+        "inputs": [
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "Terminal_1",
+              "en": "Terminal_1"
+            },
+            "title": {
+              "es": "Nombre de sesión",
+              "en": "Session name"
+            },
+            "id": "id",
+            "css": "col-md-12"
+          }
+        ]
+      },
+      "video_youtube": "",
+      "icon": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDQ3Mi42MTUgNDcyLjYxNSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDcyLjYxNSA0NzIuNjE1OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8Zz4NCgk8Zz4NCgkJPHBhdGggZD0iTTAsMC43NTZ2NDcxLjEwM2g0NzIuNjE1VjAuNzU2SDB6IE03NC45NjksMzkzLjQwNGw3MS42ODYtNzEuNjkxbC03MS42ODYtNzEuNjg3bDEzLjM2Ni0xMy4zNjZsODUuMDUyLDg1LjA1Mw0KCQkJTDg4LjMzNSw0MDYuNzdMNzQuOTY5LDM5My40MDR6IE0yNzUuMjYyLDQwOS41MzlIMTYwLjAyMXYtMTguOTA1aDExNS4yNDFWNDA5LjUzOXoiLz4NCgk8L2c+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8L3N2Zz4NCg==",
+      "module": "disconnect",
+      "module_name": "Terminal_emulator",
+      "visible": true,
+      "options": false,
+      "father": "module",
+      "group": "scripts",
+      "linux": false,
+      "windows": true,
+      "mac": true,
+      "docker": true
+    },
+    {
+      "en": {
+        "title": "End Session",
+        "description": "Finish terminal session"
+      },
+      "es": {
+        "title": "Cerrar sesión",
+        "description": "Finaliza la sesión en la terminal"
+      },
+      "form": {
+        "css": "modal-md",
+        "inputs": [
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "Terminal_1",
+              "en": "Terminal_1"
+            },
+            "title": {
+              "es": "Nombre de sesión",
+              "en": "Session name"
+            },
+            "id": "id",
+            "css": "col-md-12"
+          }
+        ]
+      },
+      "video_youtube": "",
+      "icon": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDQ3Mi42MTUgNDcyLjYxNSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDcyLjYxNSA0NzIuNjE1OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8Zz4NCgk8Zz4NCgkJPHBhdGggZD0iTTAsMC43NTZ2NDcxLjEwM2g0NzIuNjE1VjAuNzU2SDB6IE03NC45NjksMzkzLjQwNGw3MS42ODYtNzEuNjkxbC03MS42ODYtNzEuNjg3bDEzLjM2Ni0xMy4zNjZsODUuMDUyLDg1LjA1Mw0KCQkJTDg4LjMzNSw0MDYuNzdMNzQuOTY5LDM5My40MDR6IE0yNzUuMjYyLDQwOS41MzlIMTYwLjAyMXYtMTguOTA1aDExNS4yNDFWNDA5LjUzOXoiLz4NCgk8L2c+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8L3N2Zz4NCg==",
+      "module": "end_session",
       "module_name": "Terminal_emulator",
       "visible": true,
       "options": false,

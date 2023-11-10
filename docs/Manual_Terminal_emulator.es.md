@@ -1,14 +1,19 @@
+
+
+
+
 # Terminal Emulator
   
-Módulo para realizar acciones en un emulador de terminal  
+Este módulo permite realizar acciones en un emulador de terminal, como conectar, enviar texto, enviar teclas, mover el cursor, etc.  
 
-*Read this in other languages: [English](Manual_Terminal_emulator.md), [Español](Manual_Terminal_emulator.es.md).*
+*Read this in other languages: [English](Manual_Terminal_emulator.md), [Português](Manual_Terminal_emulator.pr.md), [Español](Manual_Terminal_emulator.es.md)*
   
-![banner](imgs/Banner_terminal_emulator.png)
+![banner](imgs/Banner_Terminal_emulator.png)
 ## Como instalar este módulo
   
-__Descarga__ e __instala__ el contenido en la carpeta 'modules' en la ruta de Rocketbot.  
-
+Para instalar el módulo en Rocketbot Studio, se puede hacer de dos formas:
+1. Manual: __Descargar__ el archivo .zip y descomprimirlo en la carpeta modules. El nombre de la carpeta debe ser el mismo al del módulo y dentro debe tener los siguientes archivos y carpetas: \__init__.py, package.json, docs, example y libs. Si tiene abierta la aplicación, refresca el navegador para poder utilizar el nuevo modulo.
+2. Automática: Al ingresar a Rocketbot Studio sobre el margen derecho encontrara la sección de **Addons**, seleccionar **Install Mods**, buscar el modulo deseado y presionar install.  
 
 
 ## Descripción de los comandos
@@ -18,70 +23,73 @@ __Descarga__ e __instala__ el contenido en la carpeta 'modules' en la ruta de Ro
 Conecta con una terminal
 |Parámetros|Descripción|ejemplo|
 | --- | --- | --- |
-|Nombre de sesión|Nombre de la sesión para identificarla|Terminal_1|
-|Host|Host de la terminal|localhost|
-|Port|Puerto de la terminal|23|
-|Tipo de terminal|Tipo de terminal a conectar|3270|
-|Seguridad|Tipo de seguridad a utilizar|SSL|
-|Mostrar terminal|Mostrar la terminal al conectarse|True|
-|Asignar a variable|Asigna el resultado de la conexión a una variable|connected|
-|Archivo de configuración|Archivo de configuración de la terminal|c:/wc3270/conf.ini|
-
-### Desconectar
-  
-Desconecta con la terminal
-|Parámetros|Descripción|ejemplo|
-| --- | --- | --- |
-|Nombre de sesión|Nombre de la sesión de la terminal|Terminal_1|
-
-### Cerrar sesión
-  
-Finaliza la sesión en la terminal
-|Parámetros|Descripción|ejemplo|
-| --- | --- | --- |
-|Nombre de sesión|Nombre de la sesión de la terminal|Terminal_1|
+|Nombre de sesión||Terminal_1|
+|Host||localhost|
+|Port||23|
+|Tipo de terminal|||
+|Protocolo de seguridad|||
+|Mostrar terminal|Si se marca, se mostrara una terminal para revisar ejecuciones del robot. Herramienta para desarollo.||
+|Archivo de configuración||c:/wc3270/conf.ini|
+|Variable donde guardar el resultado||connected|
 
 ### Enviar Texto
   
 Envía texto a la terminal
 |Parámetros|Descripción|ejemplo|
 | --- | --- | --- |
-|Nombre de sesión|Nombre de la sesión de la terminal|Terminal_1|
-|Texto|Texto a enviar|Usuario 1|
+|Nombre de sesión||Terminal_1|
+|Texto|Texto a envir a la terminal|Usuario 1|
 
 ### Enviar Tecla
   
-Envía tecla a la terminal
+Envía una tecla o secuencia de teclas a la terminal
 |Parámetros|Descripción|ejemplo|
 | --- | --- | --- |
-|Nombre de sesión|Nombre de la sesión de la terminal|Terminal_1|
-|Texto|Texto a enviar|Hola Mundo|
-|Tecla|Tecla a enviar|BackSpace|
+|Nombre de sesión||Terminal_1|
+|Keys|Teclas a enviar|Hola Mundo|
+|Tecla|Tecla a enviar||
+|Cantidad|Cantidad de veces a enviar la tecla|1|
+|Enviar tecla F sin comando PA |Enviar tecla de Función de Programa (PF) sin tecla de Atención de Programa (PA).||
 
 ### Mover cursor
   
-Mueve el cursor a una posición específica en el terminal
+Mueve el cursor 
 |Parámetros|Descripción|ejemplo|
 | --- | --- | --- |
-|Nombre de sesión|Nombre de la sesión a la que se le enviará la tecla|Terminal_1|
-|Mover por posición|Mover el cursor a una posición específica|fila,columna|
-|Dirección|Dirección a la que se moverá el cursor|Cursor Down|
+|Nombre de sesión||Terminal_1|
+|Mover por posición||fila,columna|
+|Dirección|Dirección a donde mover el cursor||
+|Cantidad|Cantidad de lugares a mover|1|
 
 ### Obtener Texto
   
 Obtiene el texto de la terminal
 |Parámetros|Descripción|ejemplo|
 | --- | --- | --- |
-|Nombre de sesión|Nombre de la sesión de la terminal|Terminal_1|
-|Variable donde guardar el resultado|Variable donde se almacena el resultado|terminal_text|
+|Nombre de sesión||Terminal_1|
+|Variable donde guardar el resultado||terminal_text|
 
 ### Esperar
   
 Espera el texto en la terminal según una condición específica
 |Parámetros|Descripción|ejemplo|
 | --- | --- | --- |
-|Nombre de sesión|Nombre de la sesión de la terminal|Terminal_1|
-|Tiempo de espera|Tiempo de espera en segundos|10|
-|Asignar a variable|Asigna el resultado a una variable|condition|
-|Esperar por|Espera por la condición seleccionada|Text appears|
-|Texto|Texto a esperar|Opción|
+|Nombre de sesión||Terminal_1|
+|Tiempo de espera|Tiempo maximo de espera|10|
+|Esperar por|||
+|Texto|Texto por el cual se esperara|Opción|
+|Variable donde guardar el resultado||condition|
+
+### Desconectar
+  
+Desconecta con la terminal
+|Parámetros|Descripción|ejemplo|
+| --- | --- | --- |
+|Nombre de sesión||Terminal_1|
+
+### Cerrar sesión
+  
+Finaliza la sesión en la terminal
+|Parámetros|Descripción|ejemplo|
+| --- | --- | --- |
+|Nombre de sesión||Terminal_1|
