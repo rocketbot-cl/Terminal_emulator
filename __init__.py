@@ -76,6 +76,7 @@ FUNCTIONS_ = {
     "moveCursorRight": "moveCursorRight",
     "moveCursorUp": "moveCursorUp",
     "moveTo": "moveTo",
+    "home": "moveToFirstInputField",
     "tab": "sendTab"
 }
 
@@ -98,7 +99,7 @@ if module == "connect":
     protocol = GetParams('protocol')
     show = GetParams('show')
     config = GetParams('config')
-
+    model = GetParams('model')
     result = GetParams('result')
     try:
 
@@ -106,17 +107,21 @@ if module == "connect":
             port = '23'
         if not config:
             config = None
-
+        if not model:
+            model = '3279-2'  
         path = path = BASE_PATH + 'modules' + os.sep + 'Terminal_emulator' + os.sep + 'bin' + os.sep + "3270" + os.sep
         args = {
             "hostName": host,
             "hostPort": port,
             "configFile": config,
-            "path": path
+            "path": path,
+            "verifyCert": "no",
+            "modelName": model
         }
         
         if protocol == "tls":
             args["enableTLS"] = "yes"
+            args["verifyCert"] = "no"
            
         terminal_simulator = create_terminal(terminal_type, **args)
         terminal_log_path = LOG_PATH + session + ".txt"
@@ -127,7 +132,7 @@ if module == "connect":
         }
 
         connected = terminal_simulator.connect()
-
+        print("connected: ", connected)
         if show and show == "True":
             print([APP_PATH, "-l=" + terminal_log_path])
             process = subprocess.Popen([APP_PATH, "-l=" + terminal_log_path], shell=True)
@@ -211,18 +216,27 @@ try:
                 try:
                     # This is for Terminal Type 5250
                     getattr(terminal_simulator, function)(*number)
+    
                 except:
                     # This is for Terminal Type 3270
-                    number = number[0]
-                    if 0 < number < 13:
-                        terminal_simulator.p3270.sendPA(1)
-                        terminal_simulator.p3270.sendPF(number)
-                    elif 12 < number < 25:
-                        terminal_simulator.p3270.sendPA(2)
-                        terminal_simulator.p3270.sendPF(number)      
+                    number = number[0] if number else None
+                    if number is not None:
+                        if 0 < number < 13:
+                            terminal_simulator.sendPA(1)
+                            terminal_simulator.sendPF(number)
+                        elif 12 < number < 25:
+                            terminal_simulator.sendPA(2)
+                            terminal_simulator.sendPF(number)
+                    else:
+                        getattr(terminal_simulator, function)()
             elif params_keys:
                 for key in params_keys:
-                    terminal_simulator.p3270.s3270.do("Key({})".format(key[0]))
+                    try:
+                        # This is for Terminal Type 5250
+                        terminal_simulator.p3270.s3270.do("Key({})".format(key[0]))
+                    except:
+                        # This is for Terminal Type 3270
+                        terminal_simulator.s3270.do("Key({})".format(key[0]))
 
     if module == "move_cursor":
         position = GetParams('position')
@@ -270,7 +284,12 @@ try:
         result = GetParams("result")
 
         screen = terminal_simulator.getScreen
-        cursor = terminal_simulator.p3270.s3270.statusMsg.cursorPosition
+        try:
+            # This is for Terminal Type 5250
+            cursor = terminal_simulator.p3270.s3270.statusMsg.cursorPosition
+        except:
+            # This is for Terminal Type 3270
+            cursor = terminal_simulator.s3270.statusMsg.cursorPosition
         connected = False
         now = 0
         if option == "appears":
@@ -286,7 +305,7 @@ try:
             while text != cursor() and now - start <= int(wait):
                 sleep(1)
                 now = ProcessTime()
-        if now - start > int(wait):
+        if now - start < int(wait):
             connected = True
         if result:
             SetVar(result, connected)
@@ -295,6 +314,7 @@ try:
         create_log(terminal_simulator, terminal_log_path)
 
 except Exception as e:
-    PrintException()
+    import traceback
+    traceback.print_exc()
     raise e
 
