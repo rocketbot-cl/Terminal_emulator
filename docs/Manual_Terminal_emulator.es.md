@@ -27,6 +27,7 @@ Conecta con una terminal
 |Host||localhost|
 |Port||23|
 |Tipo de terminal|||
+|Modelo de terminal|||
 |Protocolo de seguridad|||
 |Mostrar terminal|Si se marca, se mostrara una terminal para revisar ejecuciones del robot. Herramienta para desarollo.||
 |Archivo de configuración||c:/wc3270/conf.ini|

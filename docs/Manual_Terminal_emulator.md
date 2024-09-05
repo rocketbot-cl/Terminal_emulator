@@ -27,6 +27,7 @@ Connect to terminal
 |Host||localhost|
 |Port||23|
 |Terminal type|||
+|Terminal Model|||
 |Safety protocol|||
 |Show terminal|If checked, a terminal will be displayed to review robot executions. Development tool.||
 |Configuration file||c:/wc3270/conf.ino|

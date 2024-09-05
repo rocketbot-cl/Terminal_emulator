@@ -7,7 +7,7 @@
     "pr": "Este módulo permite realizar ações em um emulador de terminal, como conectar, enviar texto, enviar chaves, mover o cursor, etc."
   },
   "disclaimer": "THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.",
-  "version": "2.2.4",
+  "version": "2.2.8",
   "license": "MIT",
   "homepage": "http://rocketbot.com",
   "linux": true,
@@ -97,6 +97,57 @@
               "en": "Terminal type:"
             },
             "id": "type",
+            "css": "col-md-4"
+          },
+          {
+            "type": "select",
+            "options": [
+              {
+                "title": "--Seleccione--",
+                "value": ""
+              },
+              {
+                "title": "3278-2 (80x24)",
+                "value": "3278-2"
+              },
+              {
+                "title": "3278-3 (80x32)",
+                "value": "3278-3"
+              },
+              {
+                "title": "3278-4 (80x43)",
+                "value": "3278-4"
+              },
+              {
+                "title": "3278-5 (132x27)",
+                "value": "3278-5"
+              },
+              {
+                "title": "3279-2 (80x24)",
+                "value": "3279-2"
+              },
+              {
+                "title": "3279-3 (80x32)",
+                "value": "3279-3"
+              },
+              {
+                "title": "3279-4 (80x43)",
+                "value": "3279-4"
+              },
+              {
+                "title": "3279-5 (132x27)",
+                "value": "3279-5"
+              }
+            ],
+            "title": {
+              "es": "Modelo de terminal",
+              "en": "Terminal Model"
+            },
+            "help": {
+              "es": "Por defecto 3279-2. El modelo base 3278 es una pantalla 3270 verde sobre negro, mientras que el modelo base 3279 es una pantalla 3270 a color. Los números de modelo se utilizan para especificar la definición de la pantalla (filas y columnas).",
+              "en": "By default 3279-2. The base model 3278 is a green on black 3270 display, whereas 3279 base model is a color 3270 display. Model numbers are used to specify the screen definition (rows and columns)."
+            },
+            "id": "model",
             "css": "col-md-4"
           },
           {
@@ -288,6 +339,10 @@
               {
                 "title": "--Seleccione--",
                 "value": ""
+              },
+              {
+                "title": "Home",
+                "value": "home"
               },
               {
                 "title": "BackSpace",
