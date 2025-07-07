@@ -7,7 +7,7 @@
     "pr": "Este módulo permite realizar ações em um emulador de terminal, como conectar, enviar texto, enviar chaves, mover o cursor, etc."
   },
   "disclaimer": "THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.",
-  "version": "2.2.8",
+  "version": "2.2.9",
   "license": "MIT",
   "homepage": "http://rocketbot.com",
   "linux": true,
@@ -185,6 +185,23 @@
               "en": "If checked, a terminal will be displayed to review robot executions. Development tool."
             },
             "id": "show",
+            "css": "col-md-4"
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "BOTWKS01",
+              "en": "BOTWKS01"
+            },
+            "title": {
+              "es": "Workstation ID",
+              "en": "Workstation ID"
+            },
+            "description": {
+              "en": "Optional. Unique workstation identifier for connecting to the AS400 server. This value must be registered and authorized by the system. If left blank, one will be generated automatically.",
+              "es": "Opcional. Identificador único de estación de trabajo para la conexión al servidor AS400. Este valor debe estar registrado y autorizado por el sistema. Si se deja en blanco, se generará uno automáticamente."
+            },
+            "id": "workstation_id",
             "css": "col-md-4"
           },
           {

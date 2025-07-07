@@ -30,6 +30,7 @@ Conecta con una terminal
 |Modelo de terminal|||
 |Protocolo de seguridad|||
 |Mostrar terminal|Si se marca, se mostrara una terminal para revisar ejecuciones del robot. Herramienta para desarollo.||
+|Workstation ID|Opcional. Identificador único de estación de trabajo para la conexión al servidor AS400. Este valor debe estar registrado y autorizado por el sistema. Si se deja en blanco, se generará uno automáticamente.|BOTWKS01|
 |Archivo de configuración||c:/wc3270/conf.ini|
 |Variable donde guardar el resultado||connected|
 

@@ -30,6 +30,7 @@ Connect to terminal
 |Terminal Model|||
 |Safety protocol|||
 |Show terminal|If checked, a terminal will be displayed to review robot executions. Development tool.||
+|Workstation ID|Optional. Unique workstation identifier for connecting to the AS400 server. This value must be registered and authorized by the system. If left blank, one will be generated automatically.|BOTWKS01|
 |Configuration file||c:/wc3270/conf.ino|
 |Variable where to save the result||connected|
 
