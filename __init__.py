@@ -101,6 +101,7 @@ if module == "connect":
     config = GetParams('config')
     model = GetParams('model')
     result = GetParams('result')
+    workstation_id = GetParams('workstation_id')
     try:
 
         if not port:
@@ -122,7 +123,9 @@ if module == "connect":
         if protocol == "tls":
             args["enableTLS"] = "yes"
             args["verifyCert"] = "no"
-           
+        if workstation_id:
+            args["luName"] = workstation_id
+
         terminal_simulator = create_terminal(terminal_type, **args)
         terminal_log_path = LOG_PATH + session + ".txt"
         mod_terminal_emulator_sessions[session] = {
@@ -131,7 +134,8 @@ if module == "connect":
             "process": None
         }
 
-        connected = terminal_simulator.connect()
+        terminal_simulator.connect()
+        connected = terminal_simulator.isConnected()
         print("connected: ", connected)
         if show and show == "True":
             print([APP_PATH, "-l=" + terminal_log_path])
