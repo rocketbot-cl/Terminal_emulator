@@ -7,7 +7,7 @@
     "pr": "Este módulo permite realizar ações em um emulador de terminal, como conectar, enviar texto, enviar chaves, mover o cursor, etc."
   },
   "disclaimer": "THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.",
-  "version": "2.2.10",
+  "version": "2.2.11",
   "license": "MIT",
   "homepage": "http://rocketbot.com",
   "linux": true,
@@ -34,6 +34,10 @@
         "title": "Conectar",
         "description": "Conecta con una terminal"
       },
+      "pr": {
+        "title": "Conectar",
+        "description": "Conecta com um terminal"
+      },
       "form": {
         "css": "modal-lg",
         "inputs": [
@@ -41,11 +45,13 @@
             "type": "input",
             "placeholder": {
               "es": "Terminal_1",
-              "en": "Terminal_1"
+              "en": "Terminal_1",
+              "pr": "Terminal_1"
             },
             "title": {
               "es": "Nombre de sesión",
-              "en": "Session name"
+              "en": "Session name",
+              "pr": "Nome da sessão"
             },
             "id": "id",
             "css": "col-md-4"
@@ -54,11 +60,13 @@
             "type": "input",
             "placeholder": {
               "es": "localhost",
-              "en": "localhost"
+              "en": "localhost",
+              "pr": "localhost"
             },
             "title": {
               "es": "Host",
-              "en": "Host"
+              "en": "Host",
+              "pr": "Host"
             },
             "id": "host",
             "css": "col-md-4"
@@ -67,11 +75,13 @@
             "type": "input",
             "placeholder": {
               "es": "23",
-              "en": "23"
+              "en": "23",
+              "pr": "23"
             },
             "title": {
               "es": "Port",
-              "en": "Port"
+              "en": "Port",
+              "pr": "Port"
             },
             "id": "port",
             "css": "col-md-4"
@@ -94,7 +104,8 @@
             ],
             "title": {
               "es": "Tipo de terminal",
-              "en": "Terminal type:"
+              "en": "Terminal type:",
+              "pr": "Tipo de terminal"
             },
             "id": "type",
             "css": "col-md-4"
@@ -141,11 +152,13 @@
             ],
             "title": {
               "es": "Modelo de terminal",
-              "en": "Terminal Model"
+              "en": "Terminal Model",
+              "pr": "Modelo de terminal"
             },
             "help": {
               "es": "Por defecto 3279-2. El modelo base 3278 es una pantalla 3270 verde sobre negro, mientras que el modelo base 3279 es una pantalla 3270 a color. Los números de modelo se utilizan para especificar la definición de la pantalla (filas y columnas).",
-              "en": "By default 3279-2. The base model 3278 is a green on black 3270 display, whereas 3279 base model is a color 3270 display. Model numbers are used to specify the screen definition (rows and columns)."
+              "en": "By default 3279-2. The base model 3278 is a green on black 3270 display, whereas 3279 base model is a color 3270 display. Model numbers are used to specify the screen definition (rows and columns).",
+              "pr": "Por padrão 3279-2. O modelo base 3278 é um display 3270 verde sobre preto, enquanto o modelo base 3279 é um display 3270 colorido. Os números do modelo são usados para especificar a definição da tela (linhas e colunas)."
             },
             "id": "model",
             "css": "col-md-4"
@@ -168,21 +181,44 @@
             ],
             "title": {
               "es": "Protocolo de seguridad",
-              "en": "Safety protocol"
+              "en": "Safety protocol",
+              "pr": "Protocolo de segurança"
             },
             "id": "protocol",
             "css": "col-md-4"
           },
-           {
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "cp037",
+              "en": "cp037",
+              "pr": "cp037"
+            },
+            "title": {
+              "es": "Codificación de caracteres",
+              "en": "Code Page",
+              "pr": "Página de código"
+            },
+            "description": {
+              "es": "Especifica la página de códigos de EBCDIC para la conexión. Por defecto cp037. Español: cp284",
+              "en": "Specifies the EBCDIC code page for the connection. Default is cp037. Spanish: cp284",
+              "pr": "Especifica a página de códigos EBCDIC para a conexão. O padrão é cp037. Espanhol: cp284"
+            },
+            "id": "codePage",
+            "css": "col-md-4"
+          },
+          {
             "type": "checkbox",
             "placeholder": "",
             "title": {
               "es": "Mostrar terminal",
-              "en": "Show terminal"
+              "en": "Show terminal", 
+              "pr": "Mostrar terminal"
             },
             "description": {
               "es": "Si se marca, se mostrara una terminal para revisar ejecuciones del robot. Herramienta para desarollo.",
-              "en": "If checked, a terminal will be displayed to review robot executions. Development tool."
+              "en": "If checked, a terminal will be displayed to review robot executions. Development tool.",
+              "pr": "Se marcado, um terminal será exibido para revisar execuções do robô. Ferramenta de desenvolvimento."
             },
             "id": "show",
             "css": "col-md-4"
@@ -191,15 +227,18 @@
             "type": "input",
             "placeholder": {
               "es": "BOTWKS01",
-              "en": "BOTWKS01"
+              "en": "BOTWKS01",
+              "pr": "BOTWKS01"
             },
             "title": {
               "es": "Workstation ID",
-              "en": "Workstation ID"
+              "en": "Workstation ID",
+              "pr": "ID da estação de trabalho"
             },
             "description": {
               "en": "Optional. Unique workstation identifier for connecting to the AS400 server. This value must be registered and authorized by the system. If left blank, one will be generated automatically.",
-              "es": "Opcional. Identificador único de estación de trabajo para la conexión al servidor AS400. Este valor debe estar registrado y autorizado por el sistema. Si se deja en blanco, se generará uno automáticamente."
+              "es": "Opcional. Identificador único de estación de trabajo para la conexión al servidor AS400. Este valor debe estar registrado y autorizado por el sistema. Si se deja en blanco, se generará uno automáticamente.",
+              "pr": "Opcional. Identificador único da estação de trabalho para conectar ao servidor AS400. Este valor deve ser registrado e autorizado pelo sistema. Se deixado em branco, um será gerado automaticamente."
             },
             "id": "workstation_id",
             "css": "col-md-4"
@@ -208,28 +247,33 @@
             "type": "file_select",
             "placeholder": {
               "es": "c:/wc3270/conf.ini",
-              "en": "c:/wc3270/conf.ino"
+              "en": "c:/wc3270/conf.ino",
+              "pr": "c:/wc3270/conf.ini"
             },
             "title": {
               "es": "Archivo de configuración",
-              "en": "Configuration file"
+              "en": "Configuration file",
+              "pr": "Arquivo de configuração"
             },
-            "id": "path",
+            "id": "config",
             "css": "col-md-12"
           },
           {
             "type": "input",
             "placeholder": {
               "es": "connected",
-              "en": "connected"
+              "en": "connected",
+              "pr": "conectado"
             },
             "title": {
               "es": "Variable donde guardar el resultado",
-              "en": "Variable where to save the result"
+              "en": "Variable where to save the result",
+              "pr": "Variável onde salvar o resultado"
             },
             "help": {
               "en": "Variable where the result is stored without {}",
-              "es": "Variable donde se almacena el resultado sin {}"
+              "es": "Variable donde se almacena el resultado sin {}",
+              "pr": "Variável onde o resultado é armazenado sem {}"
             },
             "remove_vars": true,
             "id": "result",
@@ -259,6 +303,10 @@
         "title": "Enviar Texto",
         "description": "Envía texto a la terminal"
       },
+      "pr":{
+        "title": "Enviar Texto",
+        "description": "Envia texto para o terminal"
+      },
       "form": {
         "css": "modal-lg",
         "inputs": [
@@ -266,11 +314,13 @@
             "type": "input",
             "placeholder": {
               "es": "Terminal_1",
-              "en": "Terminal_1"
+              "en": "Terminal_1",
+              "pr": "Terminal_1"
             },
             "title": {
               "es": "Nombre de sesión",
-              "en": "Session name"
+              "en": "Session name",
+              "pr": "Nome da sessão"
             },
             "id": "id",
             "css": "col-md-12"
@@ -280,15 +330,18 @@
             "placeholder": {
 
               "es": "Usuario 1",
-              "en": "User 1"
+              "en": "User 1",
+              "pr": "Usuário 1"
             },
             "title": {
               "es": "Texto",
-              "en": "Text"
+              "en": "Text",
+              "pr": "Texto"
             },
             "description": {
               "es": "Texto a envir a la terminal",
-              "en": "Text to send to the termianl"
+              "en": "Text to send to the termianl",
+              "pr": "Texto para enviar para o terminal"
             },
             "id": "text",
             "css": "col-md-12"
@@ -317,6 +370,10 @@
         "title": "Enviar Tecla",
         "description": "Envía una tecla o secuencia de teclas a la terminal"
       },
+      "pr":{
+        "title": "Enviar Tecla",
+        "description": "Envia uma tecla ou sequência de teclas para o terminal"
+      },
       "form": {
         "css": "modal-lg",
         "inputs": [
@@ -324,11 +381,13 @@
             "type": "input",
             "placeholder": {
               "es": "Terminal_1",
-              "en": "Terminal_1"
+              "en": "Terminal_1",
+              "pr": "Terminal_1"
             },
             "title": {
               "es": "Nombre de sesión",
-              "en": "Session name"
+              "en": "Session name",
+              "pr": "Nome da sessão"
             },
             "id": "id",
             "css": "col-md-12"
@@ -337,15 +396,18 @@
             "type": "input",
             "placeholder": {
               "es": "Hola Mundo",
-              "en": "Hello World"
+              "en": "Hello World",
+              "pr": "Olá Mundo"
             },
             "title": {
               "es": "Keys",
-              "en": "Teclas"
+              "en": "Teclas",
+              "pr": "Teclas"
             },
             "description": {
               "es": "Teclas a enviar",
-              "en": "Keys to send"
+              "en": "Keys to send",
+              "pr": "Teclas para enviar"
             },
             "id": "keys",
             "css": "col-md-12"
@@ -484,11 +546,13 @@
             ],
             "title": {
               "es": "Tecla",
-              "en": "Keys"
+              "en": "Keys",
+              "pr": "Teclas"
             },
             "description": {
               "es": "Tecla a enviar",
-              "en": "Key to send"
+              "en": "Key to send",
+              "pr": "Tecla para enviar"
             },
             "id": "key",
             "css": "col-md-3"
@@ -497,15 +561,18 @@
             "type": "input",
             "placeholder": {
               "es": "1",
-              "en": "1"
+              "en": "1",
+              "pr": "1"
             },
             "title": {
               "es": "Cantidad",
-              "en": "Cantidad"
+              "en": "Quantity",
+              "pr": "Quantidade"
             },
             "description": {
               "es": "Cantidad de veces a enviar la tecla",
-              "en": "Number of times to send the key"
+              "en": "Number of times to send the key",
+              "pr": "Número de vezes para enviar a tecla"
             },
             "id": "q",
             "css": "col-md-3"
@@ -515,11 +582,13 @@
             "placeholder": "",
             "title": {
               "es": "Enviar tecla F sin comando PA ",
-              "en": "Send F key without PA command"
+              "en": "Send F key without PA command",
+              "pr": "Enviar tecla F sem comando PA"
             },
             "description": {
               "es": "Enviar tecla de Función de Programa (PF) sin tecla de Atención de Programa (PA).",
-              "en": "Send Program Function (PF) key without Program Attention (PA) key."
+              "en": "Send Program Function (PF) key without Program Attention (PA) key.",
+              "pr": "Enviar tecla de Função de Programa (PF) sem tecla de Atenção de Programa (PA)."
             },
             "id": "only_PF",
             "css": "col-md-6"
@@ -548,6 +617,10 @@
         "title": "Mover cursor",
         "description": "Mueve el cursor "
       },
+      "pr":{
+        "title": "Mover cursor",
+        "description": "Move o cursor"
+      },
       "form": {
         "css": "modal-md",
         "inputs": [
@@ -555,11 +628,13 @@
             "type": "input",
             "placeholder": {
               "es": "Terminal_1",
-              "en": "Terminal_1"
+              "en": "Terminal_1",
+              "pr": "Terminal_1"
             },
             "title": {
               "es": "Nombre de sesión",
-              "en": "Session name"
+              "en": "Session name",
+              "pr": "Nome da sessão"
             },
             "id": "id",
             "css": "col-md-12"
@@ -568,11 +643,13 @@
             "type": "input",
             "placeholder": {
               "es": "fila,columna",
-              "en": "row,column"
+              "en": "row,column",
+              "pr": "linha,coluna"
             },
             "title": {
               "es": "Mover por posición",
-              "en": "Move to position"
+              "en": "Move to position",
+              "pr": "Mover para posição"
             },
             "id": "position",
             "css": "col-md-12"
@@ -603,11 +680,13 @@
             ],
             "title": {
               "es": "Dirección",
-              "en": "Direction:"
+              "en": "Direction:",
+              "pr": "Direção:"
             },
             "description": {
               "es": "Dirección a donde mover el cursor",
-              "en": "Direction to move the cursor to"
+              "en": "Direction to move the cursor to",
+              "pr": "Direção para mover o cursor"
             },
             "id": "direction",
             "css": "col-md-9"
@@ -616,15 +695,18 @@
             "type": "input",
             "placeholder": {
               "es": "1",
-              "en": "1"
+              "en": "1",
+              "pr": "1"
             },
             "title": {
               "es": "Cantidad",
-              "en": "Cantidad"
+              "en": "Quantity",
+              "pr": "Quantidade"
             },
             "description": {
               "es": "Cantidad de lugares a mover",
-              "en": "Number of places to move"
+              "en": "Number of places to move",
+              "pr": "Número de lugares para mover"
             },
             "id": "q",
             "css": "col-md-3"
@@ -653,6 +735,10 @@
         "title": "Obtener Texto",
         "description": "Obtiene el texto de la terminal"
       },
+      "pr":{
+        "title": "Obter Texto",
+        "description": "Obtém o texto do terminal"
+      },
       "form": {
         "css": "modal-md",
 
@@ -661,11 +747,13 @@
             "type": "input",
             "placeholder": {
               "es": "Terminal_1",
-              "en": "Terminal_1"
+              "en": "Terminal_1",
+              "pr": "Terminal_1"
             },
             "title": {
               "es": "Nombre de sesión",
-              "en": "Session name"
+              "en": "Session name",
+              "pr": "Nome da sessão"
             },
             "id": "id",
             "css": "col-md-12"
@@ -674,15 +762,18 @@
             "type": "input",
             "placeholder": {
               "es": "terminal_text",
-              "en": "terminal_text"
+              "en": "terminal_text",
+              "pr": "texto_terminal"
             },
             "title": {
               "es": "Variable donde guardar el resultado",
-              "en": "Variable where to save the result"
+              "en": "Variable where to save the result",
+              "pr": "Variável onde salvar o resultado"
             },
             "help": {
               "en": "Variable where the result is stored without {}",
-              "es": "Variable donde se almacena el resultado sin {}"
+              "es": "Variable donde se almacena el resultado sin {}",
+              "pr": "Variável onde o resultado é armazenado sem {}"
             },
             "remove_vars": true,
             "id": "result",
@@ -712,6 +803,10 @@
         "title": "Esperar",
         "description": "Espera el texto en la terminal según una condición específica"
       },
+      "pr":{
+        "title": "Esperar",
+        "description": "Espera o texto no terminal por uma condição específica"
+      },
       "form": {
         "css": "modal-lg",
         "inputs": [
@@ -719,11 +814,13 @@
             "type": "input",
             "placeholder": {
               "es": "Terminal_1",
-              "en": "Terminal_1"
+              "en": "Terminal_1",
+              "pr": "Terminal_1"
             },
             "title": {
               "es": "Nombre de sesión",
-              "en": "Session name"
+              "en": "Session name",
+              "pr": "Nome da sessão"
             },
             "id": "id",
             "css": "col-md-6"
@@ -732,15 +829,18 @@
             "type": "input",
             "placeholder": {
               "es": "10",
-              "en": "10"
+              "en": "10",
+              "pr": "10"
             },
             "title": {
               "es": "Tiempo de espera",
-              "en": "Wait time"
+              "en": "Wait time",
+              "pr": "Tempo de espera"
             },
             "description": {
               "es": "Tiempo maximo de espera",
-              "en": "Max waiting time"
+              "en": "Max waiting time",
+              "pr": "Tempo máximo de espera"
             },
             "id": "time",
             "css": "col-md-6"
@@ -771,7 +871,8 @@
             ],
             "title": {
               "es": "Esperar por",
-              "en": "Wait by:"
+              "en": "Wait by:",
+              "pr": "Esperar por:"
             },
             "id": "condition",
             "css": "col-md-6"
@@ -781,15 +882,18 @@
             "type": "input",
             "placeholder": {
               "es": "Opción",
-              "en": "Option"
+              "en": "Option",
+              "pr": "Opção"
             },
             "title": {
               "es": "Texto",
-              "en": "Text"
+              "en": "Text",
+              "pr": "Texto"
             },
             "description": {
               "es": "Texto por el cual se esperara",
-              "en": "Text to wait for"
+              "en": "Text to wait for",
+              "pr": "Texto para esperar"
             },
             "id": "text",
             "css": "col-md-12"
@@ -798,15 +902,18 @@
             "type": "input",
             "placeholder": {
               "es": "condition",
-              "en": "condition"
+              "en": "condition",
+              "pr": "condição"
             },
             "title": {
               "es": "Variable donde guardar el resultado",
-              "en": "Variable where to save the result"
+              "en": "Variable where to save the result",
+              "pr": "Variável onde salvar o resultado"
             },
             "help": {
               "en": "Variable where the result is stored without {}",
-              "es": "Variable donde se almacena el resultado sin {}"
+              "es": "Variable donde se almacena el resultado sin {}",
+              "pr": "Variável onde o resultado é armazenado sem {}"
             },
             "remove_vars": true,
             "id": "result",
@@ -836,6 +943,10 @@
         "title": "Desconectar",
         "description": "Desconecta con la terminal"
       },
+      "pr": {
+        "title": "Desconectar",
+        "description": "Desconecta do terminal"
+      },
       "form": {
         "css": "modal-md",
         "inputs": [
@@ -843,11 +954,13 @@
             "type": "input",
             "placeholder": {
               "es": "Terminal_1",
-              "en": "Terminal_1"
+              "en": "Terminal_1",
+              "pr": "Terminal_1"
             },
             "title": {
               "es": "Nombre de sesión",
-              "en": "Session name"
+              "en": "Session name",
+              "pr": "Nome da sessão"
             },
             "id": "id",
             "css": "col-md-12"
@@ -876,6 +989,10 @@
         "title": "Cerrar sesión",
         "description": "Finaliza la sesión en la terminal"
       },
+      "pr": {
+        "title": "Encerrar sessão",
+        "description": "Finaliza a sessão no terminal"
+      },
       "form": {
         "css": "modal-md",
         "inputs": [
@@ -883,11 +1000,13 @@
             "type": "input",
             "placeholder": {
               "es": "Terminal_1",
-              "en": "Terminal_1"
+              "en": "Terminal_1",
+              "pr": "Terminal_1"
             },
             "title": {
               "es": "Nombre de sesión",
-              "en": "Session name"
+              "en": "Session name",
+              "pr": "Nome da sessão"
             },
             "id": "id",
             "css": "col-md-12"
