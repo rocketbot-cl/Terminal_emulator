@@ -102,6 +102,7 @@ if module == "connect":
     model = GetParams('model')
     result = GetParams('result')
     workstation_id = GetParams('workstation_id')
+    codePage = GetParams('codePage')
     try:
 
         if not port:
@@ -110,6 +111,8 @@ if module == "connect":
             config = None
         if not model:
             model = '3279-2'  
+        if not codePage:
+            codePage = 'cp037'
         path = path = BASE_PATH + 'modules' + os.sep + 'Terminal_emulator' + os.sep + 'bin' + os.sep + "3270" + os.sep
         args = {
             "hostName": host,
@@ -117,7 +120,8 @@ if module == "connect":
             "configFile": config,
             "path": path,
             "verifyCert": "no",
-            "modelName": model
+            "modelName": model,
+            "codePage": codePage
         }
         
         if protocol == "tls":
