@@ -220,6 +220,11 @@
               "en": "If checked, a terminal will be displayed to review robot executions. Development tool.",
               "pr": "Se marcado, um terminal será exibido para revisar execuções do robô. Ferramenta de desenvolvimento."
             },
+            "help": {
+              "es": "El visor puede no renderizar correctamente algunos caracteres extendidos, para validar contenido usar el comando Get Text.",
+              "en": "The viewer may not render some extended characters correctly, to validate content use the Get Text command.",
+              "pr": "O visualizador pode não renderizar alguns caracteres estendidos corretamente, para validar o conteúdo use o comando Obter Texto."
+            },
             "id": "show",
             "css": "col-md-4"
           },
